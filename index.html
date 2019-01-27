@@ -1,0 +1,5279 @@
+<!DOCTYPE html>
+
+<html id="html" lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="format-detection" content="email=no" />
+	<title>E11</title>
+	<link rel="shortcut icon" href="" />
+	<link href="static/style4eb7ea.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	
+<style>
+
+
+body {
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+table{font-size:14px;line-height:1.2;border-left:0px solid #ff33cc;text-align: center;margin-top:10px;}
+
+table td, table th{ border-right:0px solid #ff33cc; border:0px solid #ff33cc;height:20px;line-height:20px;vertical-align: middle;}
+table th{color:white;text-align:left;}
+table td{line-height:30px;color:#a56ab4;text-align:right;}
+.align-justy{text-align: justify;}
+.s-pot{font-weight:bold;font-size:25px;}
+.b-pot{font-weight:bold;font-size:25px;}
+.tip{color:white;font-size:13px;}
+.round{font-weight:bold;font-size:55;}
+/* general styles */
+.menu, .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu {
+    height: 58px;
+}
+.menu li {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525');
+    min-width: 160px;
+}
+.menu > li {
+    display: block;
+    position: relative;
+}
+.menu > li:first-child {
+    border-radius: 5px 0 0;
+}
+.menu a {
+    border-left: 3px solid rgba(0, 0, 0, 0);
+    color: #808080;
+    display: block;
+    font-family: 'Lucida Console';
+    font-size: 18px;
+    line-height: 54px;
+    padding: 0 25px;
+    text-decoration: none;
+   
+}
+
+/* onhover styles */
+.menu li:hover {
+    background-color: #1c1c1c;
+    background: -moz-linear-gradient(#1c1c1c, #1b1b1b);
+    background: -ms-linear-gradient(#1c1c1c, #1b1b1b);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1c1c1c), color-stop(100%, #1b1b1b));
+    background: -webkit-linear-gradient(#1c1c1c, #1b1b1b);
+    background: -o-linear-gradient(#1c1c1c, #1b1b1b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#1b1b1b');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#1b1b1b')";
+    background: linear-gradient(#1c1c1c, #1b1b1b);
+
+    border-bottom: 2px solid #222222;
+    border-top: 2px solid #1B1B1B;
+}
+.menu li:hover > a {
+    border-radius: 5px 0 0 0;
+    border-left: 3px solid #C4302B;
+    color: #C4302B;
+}
+
+/* submenu styles */
+.submenu {
+    left: 0;
+    max-height: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 0;
+
+    -webkit-perspective: 400px;
+    -moz-perspective: 400px;
+    -ms-perspective: 400px;
+    -o-perspective: 400px;
+    perspective: 400px;
+}
+.submenu li {
+    opacity: 0;
+
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+
+    -webkit-transition: opacity .4s, -webkit-transform .5s;
+    -moz-transition: opacity .4s, -moz-transform .5s;
+    -ms-transition: opacity .4s, -ms-transform .5s;
+    -o-transition: opacity .4s, -o-transform .5s;
+    transition: opacity .4s, transform .5s;
+}
+.menu .submenu li:hover a {
+    border-left: 3px solid #454545;
+    border-radius: 0;
+    color: #ffffff;
+}
+.menu > li:hover .submenu, .menu > li:focus .submenu {
+    max-height: 2000px;
+    z-index: 10;
+}
+.menu > li:hover .submenu li, .menu > li:focus .submenu li {
+    opacity: 1;
+
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+
+/* CSS3 delays for transition effects */
+.menu li:hover .submenu li:nth-child(1) {
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.menu li:hover .submenu li:nth-child(2) {
+    -webkit-transition-delay: 50ms;
+    -moz-transition-delay: 50ms;
+    -ms-transition-delay: 50ms;
+    -o-transition-delay: 50ms;
+    transition-delay: 50ms;
+}
+.menu li:hover .submenu li:nth-child(3) {
+    -webkit-transition-delay: 100ms;
+    -moz-transition-delay: 100ms;
+    -ms-transition-delay: 100ms;
+    -o-transition-delay: 100ms;
+    transition-delay: 100ms;
+}
+.menu li:hover .submenu li:nth-child(4) {
+    -webkit-transition-delay: 150ms;
+    -moz-transition-delay: 150ms;
+    -ms-transition-delay: 150ms;
+    -o-transition-delay: 150ms;
+    transition-delay: 150ms;
+}
+
+
+.submenu li:nth-child(1) {
+    -webkit-transition-delay: 350ms;
+    -moz-transition-delay: 350ms;
+    -ms-transition-delay: 350ms;
+    -o-transition-delay: 350ms;
+    transition-delay: 350ms;
+}
+.submenu li:nth-child(2) {
+    -webkit-transition-delay: 300ms;
+    -moz-transition-delay: 300ms;
+    -ms-transition-delay: 300ms;
+    -o-transition-delay: 300ms;
+    transition-delay: 300ms;
+}
+.submenu li:nth-child(3) {
+    -webkit-transition-delay: 250ms;
+    -moz-transition-delay: 250ms;
+    -ms-transition-delay: 250ms;
+    -o-transition-delay: 250ms;
+    transition-delay: 250ms;
+}
+.submenu li:nth-child(4) {
+    -webkit-transition-delay: 200ms;
+    -moz-transition-delay: 200ms;
+    -ms-transition-delay: 200ms;
+    -o-transition-delay: 200ms;
+    transition-delay: 200ms;
+}
+
+.r_r{
+	border-radius: 5px;
+	height:50px;
+	width:260px;
+	margin-right:20px;
+	background-color:transparent;border:0;box-shadow: 0 0 3px #F8A0F8;
+	padding-left:5px;
+	font-size:12px;
+	font-weight:normal;
+	color:#a9a9a9;
+}
+
+.cus_btn{width:200px;height:50px;text-align:center;line-height:50px;background-image:-webkit-linear-gradient(176deg,#9a0ea7,#b621c9 49%,#d234ea),-webkit-linear-gradient(#4c4c4c,#4c4c4c);background-image:-o-linear-gradient(176deg,#9a0ea7 0,#b621c9 49%,#d234ea 100%),-o-linear-gradient(#4c4c4c,#4c4c4c);background-image:linear-gradient(-86deg,#9a0ea7,#b621c9 49%,#d234ea),linear-gradient(#4c4c4c,#4c4c4c);background-blend-mode:normal,normal;-webkit-box-shadow:0 10px 30px 4px rgba(38,11,54,.23);box-shadow:0 10px 30px 4px rgba(38,11,54,.23);border-radius:25px;color:#fff;margin-bottom:14px;border:none;outline:none}
+.cus_btn:hover{cursor:pointer}
+
+.guess-news-container p{margin:0;background:url() no-repeat;background-position:50px}
+
+.ethglitch {
+  font-weight: bold; }
+
+.headtimer {
+  display: block;
+  font-size: 34px; }
+  .headtimer a {
+    text-decoration: underline;
+    color: #f8f9fa;
+    font-weight: 400; }
+
+[type=reset], [type=submit], button, html [type=button] {
+  -webkit-appearance: initial !important; }
+
+#quotes {
+  display: none; }
+  #quotes.active {
+    display: block; }
+
+.cprogress {
+  display: none; }
+  .cprogress .active {
+    display: initial; }
+
+.distribution {
+  text-align: center; }
+  .distribution .lead {
+    font-size: 15px; }
+  .distribution .team {
+    border-right: 0px #565656 solid; }
+    .distribution .team:last-child {
+      border-right: 0; }
+    .distribution .team img {
+      width: 75%; }
+    .distribution .team p {
+      font-size: 12px; }
+
+.skills {
+  font-size: 10px;
+  display: block;
+  text-align: left;
+  float: left;
+  width: 100%;
+  background: rgba(80, 88, 97, 0.62); }
+  .skills .perc {
+    float: right;
+    padding-right: 2px; }
+  .skills .label {
+    padding-left: 2px;
+    float: left; }
+	
+.outoforder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+.ooo-purp {
+  background-color: rgba(48, 36, 48, 0.8);
+}
+.ooo-grey {
+  background-color: rgba(52, 58, 64, 0.8);
+}
+.btn-purp {
+	color:white;
+	background-color: #00c1c8;
+}
+.btn-blu {
+	color:white;
+	background-color: #0055f0;
+}
+.btn-blu:hover, .btn-blu.active{
+	background-color: #5491ff;
+	box-shadow: 0 0 2px #2472ff, 0 0 25px #3e82ff, 0 0 5px #5491ff;
+	text-shadow: 0 0 2px #2472ff;
+	color:white;
+}
+.btn-purp:hover, .btn-purp.active{
+	background-color: #00ddff;
+	box-shadow: 0 0 2px #2b002b, 0 0 25px #00c1c8, 0 0 5px #00ddff;
+	text-shadow: 0 0 2px #2b002b;
+	color:white;
+}
+.btn-gren_no {
+	color:white;
+	background-color: #019001;
+}
+.btn-purp_on {
+  color:white;
+  background-color: #00c1c8;
+}
+.btn-gren {
+  color:white;
+  background-color: #019001;
+}
+.btn-gren:hover, .btn-gren.active{
+	background-color: #00ff00;
+	box-shadow: 0 0 2px #032b00, 0 0 25px #00cc18, 0 0 5px #00ddff;
+	text-shadow: 0 0 2px #032b00;
+	color:white;
+}
+.btn-outline-purp {
+  color:white;
+  background-color: transparent;
+  border: 1px solid #257071;
+}
+.btn-outline-purp:hover, .btn-outline-purp.active {
+  color:white;
+  background-color: #00ddff;
+}
+.btn-outline-blu {
+  color:white;
+  background-color: transparent;
+  border: 1px solid #003aa4;
+}
+.btn-outline-blu:hover, .btn-outline-blu.active {
+  color:white;
+  background-color: #003aa4;
+}
+.btn-outline-gren {
+  color:white;
+  background-color: transparent;
+  border: 1px solid #00a42a;
+}
+.btn-outline-gren:hover, .btn-outline-gren.active {
+  color:white;
+  background-color: #00ff00;
+  	box-shadow: 0 0 2px #032b00, 0 0 25px #00cc00, 0 0 5px #00ddff;
+	text-shadow: 0 0 2px #032b00;
+}
+.btn-outline-yel {
+  color:#e6ae49;
+  background-color: transparent;
+  border: 1px solid #e6ae49;
+}
+.btn-outline-yel:hover {
+  color:white;
+  background-color: #e6ae49;
+}
+.btn-viol {
+	color:white;
+	background-color: #0B6623 ;
+	text-shadow: 0 0 2px #1e511e;
+}
+.btn-viol:hover, .btn-viol.active{
+	background-color: #0ef70e;
+	box-shadow: 0 0 2px #1e511e, 0 0 25px #2cb32c, 0 0 5px #00ff00;
+	text-shadow: 0 0 2px #1e511e;
+	color:white;
+}
+.fa-question-circle {
+  color:#e6ae49;
+}
+.qbtn {
+  background-color: transparent;
+  border: none;
+}
+.qbtn:hover {
+  cursor: pointer;
+}
+.qbtn:hover .fa-question-circle {
+  color: white;
+  filter: drop-shadow(0 0 2px #8a682b) drop-shadow(0 0 10px #cf9c41) drop-shadow(0 0 5px #e6ae49)!important;
+  -webkit-filter: drop-shadow(0 0 2px #8a682b) drop-shadow(0 0 10px #cf9c41) drop-shadow(0 0 5px #e6ae49)!important;
+}
+a:hover{
+  color:white;
+}
+
+/* a.btn-purp:hover, button.btn-purp:hover {
+	color: white;
+	filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #00c1c8) drop-shadow(0 0 5px #00ddff);
+	-webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #00c1c8) drop-shadow(0 0 5px #00ddff);
+} */
+.progress {
+	background-color: #2d3238;
+	border-top:1px solid #1d2024;
+	border-bottom:1px solid #676b70;
+	height:5px;
+}
+.progress-bar {
+	background-color: #00c1c8;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table td, .table th {
+	border: none;
+}
+.borderchange {
+	border-bottom: 1px solid rgba(0,0,0,.1)!important;
+}
+thead tr:hover {
+	text-shadow: none!important;
+}
+tbody th {
+	font-weight: normal;
+}
+
+tr:hover {
+	background-color: transparent;
+	text-shadow: 0 0 2px #2b002b, 0 0 25px #00c1c8, 0 0 5px #00ddff;
+}
+.playername{
+	overflow: hidden;
+	max-width:6.5rem;
+}
+.textshade {
+	text-shadow: 0 0 2px #22252a, 0 0 10px #0d0e10;
+}
+.jumboshade {
+	box-shadow: 0 0 2px #22252a;
+}
+.jumbotron-adjust {
+	padding: 1rem!important;
+}
+.jumbotron-fix {
+	max-height:100%;
+	max-width: 100%;
+	
+}
+.jumbotron2 {
+ padding:1rem 1rem;
+ margin-bottom:1rem;
+ background-color:rgba(255, 255, 255, 0.85);
+ border-radius:.3rem;
+}
+.jumbotron-dark {
+ padding:1rem 1rem;
+ margin-bottom:1rem;
+ background-color:rgba(0, 0, 0, 0);
+ border-radius:.3rem;
+}
+.nobg {
+	background-color: transparent;
+}
+.tright {
+	text-align: right;
+}
+.nav-link {
+	  border: 1px solid transparent;
+}
+.nav-link:hover {
+	text-shadow: 0 0 2px #2b002b, 0 0 25px #00c1c8, 0 0 5px #00ddff;
+	color:white;
+}
+.nav-link-gren-on{
+	text-shadow: 0 0 2px #002b00, 0 0 25px #0c0, 0 0 5px #0f0;
+	background-color: transparent;
+}
+.nav-link-purp-on{
+	text-shadow: 0 0 2px #2b002b, 0 0 25px #00c1c8, 0 0 5px #00ddff;
+	background-color: transparent;
+}
+.nav-link-blu-on{
+  text-shadow: 0 0 2px #001f58, 0 0 25px #0055f1, 0 0 5px #003aa4;
+  background-color: transparent;
+}
+.nav-link-blu-on:hover {
+  text-shadow: 0 0 2px #001f58, 0 0 25px #0055f1, 0 0 5px #003aa4;
+  background-color: transparent;
+  border: 1px solid #0055f1;
+}
+.nav-link-gren:hover {
+	text-shadow: 0 0 2px #002b00, 0 0 25px #0c0, 0 0 5px #0f0;
+	background-color: transparent;
+	border: 1px solid #0c0;
+}
+.nav-link-purp:hover {
+	text-shadow: 0 0 2px #2b002b, 0 0 25px #00c1c8, 0 0 5px #00ddff;
+	background-color: transparent;
+	border: 1px solid #00c1c8;
+}
+.nav-link-gren-shadow:hover {
+	text-shadow: 0 0 2px #002b00, 0 0 25px #0c0, 0 0 5px #0f0 !important;
+	background-color: transparent;
+}
+.nav-item a {
+	color: white!important;
+}
+.nav-item > .active {
+	background-color: #ff4fff!important;
+	box-shadow: 0 0 2px #2b002b, 0 0 25px #00c1c8, 0 0 5px #00ddff;
+}
+.teaser-cover {
+	background-color: transparent;
+}
+.spacer {
+  margin-top:6rem;
+}
+.spacerhide {
+	margin-top:0rem !important;
+}
+.marginb{
+	margin-bottom:1rem;
+}
+.margint{
+	margin-top:1rem;
+}
+.nomarginb{
+	margin-bottom: 0;
+}
+.nopadding-l{
+	padding-left:0;
+}
+.nopadding-r{
+	padding-right:0;
+}
+.nomargin-l{
+	margin-left:0;
+}
+.nomargin-r{
+	margin-right:0;
+}
+.nopadding-b{
+	padding-bottom: 0;
+}
+.carousel-bg {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.teamscore {
+	background-color: #2d3238;
+	border-top:1px solid #1d2024;
+	border-bottom:1px solid #676b70;
+}
+.glow {
+	text-shadow: 0 0 2px #2b002b, 0 0 10px #00c1c8, 0 0 5px #00ddff;
+}
+.glow-gren {
+	text-shadow: 0 0 2px #0b2b00, 0 0 10px #00cc00, 0 0 5px #0f0;
+}
+.glow-slow {
+	text-shadow: 0 0 2px #0b002b, 0 0 10px #2ee1ef, 0 0 5px #008aff;
+}
+.titleglow {
+  text-shadow: 0 0 5px #2b002b, 0 0 20px #00c1c8, 0 0 10px #00ddff;
+  color:white;
+}
+.titleglow-green{
+	text-shadow: 0 0 5px #2b002b, 0 0 20px #0c0, 0 0 10px #0f0;
+  color:white;
+}
+.titleglow-slow {
+  text-shadow: 0 0 5px #0b002b, 0 0 20px #2ee1ef, 0 0 10px #008aff;
+  color:white;
+}
+.boxglow {
+	box-shadow: 0 0 2px #2b002b, 0 0 10px #00c1c8, 0 0 5px #00ddff;
+}
+
+.dropglow-yel {
+  color: white;
+  filter: drop-shadow(0 0 2px #8a682b) drop-shadow(0 0 10px #cf9c41) drop-shadow(0 0 5px #e6ae49)!important;
+  -webkit-filter: drop-shadow(0 0 2px #8a682b) drop-shadow(0 0 10px #cf9c41) drop-shadow(0 0 5px #e6ae49)!important;
+}
+.glow-yel {
+  text-shadow: 0 0 2px #8a682b, 0 0 10px #cf9c41, 0 0 5px #e6ae49;
+}
+
+.carousel-indicators > li.active {
+	box-shadow: 0 0 2px #2b002b, 0 0 10px #00c1c8, 0 0 5px #00ddff;
+}
+.carousel-control-next:hover, .carousel-control-prev:hover {
+	filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #00c1c8) drop-shadow(0 0 5px #00ddff);
+	-webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #00c1c8) drop-shadow(0 0 5px #00ddff);
+}
+.tab-container {
+	padding:1rem;
+}
+.tab-adjust {
+	border:0!important;
+}
+.tab-rounded {
+  border-radius:0px 0px 5px 5px!important;
+}
+.tabs-border-adjust{
+  border-bottom:1px solid #343a40;
+}
+.tab-link{
+  border: none!important;
+}
+.tab-link.active{
+  box-shadow: none;
+  background-color: #343a40!important; 
+  border: none;
+}
+.tab-link:hover{
+  border:none;
+  background-color:#2d3238;
+}
+.absolute-overlay {
+	margin-top:-4rem;
+}
+
+.intro-text {
+	padding-left:10rem;
+	padding-right:10rem;
+}
+#quotes{
+  margin-top:3.9rem;
+  z-index:-1;
+}
+.alert-purp{
+  background-color: #00c1c8;
+  border-color: #00ddff;
+}
+.cta-ticket{
+  display:none;
+}
+.pulse{
+  animation:pulse 0.75s infinite;
+}
+.pulse-blu{
+  animation:pulseblu 0.75s infinite;
+}
+.pulse-gren{
+  animation:pulsegren 0.75s infinite;
+}
+.teampulse{
+  animation:slowpulse 0.75s infinite;
+}
+.pulsetutorial{
+  animation:pulsedrop 0.75s infinite;
+  position:absolute;
+  top:0.2rem;
+}
+.form-check-label{
+
+}
+.form-radio{
+  opacity: 0;
+  position: absolute;
+}
+.checkmark{
+  position: absolute;
+  top: -20px;
+  left: 0;
+  transform: scale(0.2);
+}
+.checkmark::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+label > img{
+  cursor: pointer;
+}
+.bear.checkmark {
+  transform: scale(0.17);
+  top: -17px;
+}
+.bull.checkmark {
+  top: -17px;
+}
+.snek.checkmark {
+  top: -17px;
+}
+
+.team input:checked ~ img {
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #00c1c8) drop-shadow(0 0 5px #00ddff);
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #00c1c8) drop-shadow(0 0 5px #00ddff);
+}
+.team img:hover {
+  animation:slowpulse 1s infinite;
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #00c1c8) drop-shadow(0 0 5px #00ddff);
+}
+.checkmark:after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+.ethglow{
+  filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #00c1c8) drop-shadow(0 0 5px #00ddff);
+  -webkit-filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #00c1c8) drop-shadow(0 0 5px #00ddff);
+}
+.ethglow-slow{
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #2ee1ef) drop-shadow(0 0 5px #008aff);
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #2ee1ef) drop-shadow(0 0 5px #008aff);
+}
+.ethglow-green{
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #0c0) drop-shadow(0 0 5px #0f0);
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #0c0) drop-shadow(0 0 5px #0f0);
+}
+.ethglow-calm-down-sumpunk{
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 1px #00c1c8) drop-shadow(0 0 2px #00ddff);
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 1px #00c1c8) drop-shadow(0 0 2px #00ddff);
+}
+.ethglow-its-okay-justo{
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #00c1c8) drop-shadow(0 0 2px #00ddff);
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #00c1c8) drop-shadow(0 0 2px #00ddff); 
+}
+.miniloader {
+    border-top: 2px solid #00ddff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.6s linear infinite;
+    position: absolute;
+    top:-0.8rem;
+}
+.loader {
+    border-top: 2px solid #00ddff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.6s linear infinite;
+    position: absolute;
+    top: 25%;
+    left: calc(100vw / 2 - 31px);
+	  transform: translate(-50%, -50%);
+}
+.airdropicon {
+  color:white;
+  font-size: 7rem;
+}
+.blur {
+  background-color: rgba(205,205,205,0.4);
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  overflow: hidden;
+  z-index: 99999999;
+}
+
+.hidden {
+	display: none;
+}
+.glitch {
+  position: relative;
+}
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 3px;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim infinite linear alternate-reverse;
+  background-color: #240624!important;
+}
+.glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 2px;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 infinite linear alternate-reverse;
+  background-color: #240624!important;
+} 
+.glitch-regular:after{
+  left:-1;
+}
+.glitch-regular:before{
+  left:0;
+}
+.glitch-center:after, .glitch-center:before{
+  left:0;
+}
+.afflink {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a{
+  color:white;
+}
+/* circular progress bar for airdrop modal */
+.cprogress {
+  width: 7rem;
+  height: 7rem;
+  line-height: 30px;
+  background: none;
+  margin: 0 auto;
+  box-shadow: none;
+  position: relative;
+}
+.cprogress:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #2d3238;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cprogress > span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.cprogress .cprogress-left {
+  left: 0;
+}
+.cprogress .cprogress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 2px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+  border-color: #00ddff;
+}
+.cprogress .cprogress-left .cprogress-bar {
+  left: 100%;
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+.cprogress .cprogress-right {
+  right: 0;
+}
+.cprogress .cprogress-right .cprogress-bar {
+  left: -100%;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+}
+.cprogress .cprogress-value {
+  display: flex;
+  border-radius: 50%;
+  font-size: 7rem;
+  text-align: center;
+  line-height: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+.cprogress .cprogress-value div {
+  
+}
+.cprogress .cprogress-value span {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.cprogress-value{
+  z-index:2;
+}
+.cprogress {
+  z-index:1;
+}
+
+/* This for loop creates the  necessary css animation names 
+Due to the split circle of cprogress-left and cprogress right, we must use the animations on each side. 
+*/
+.cprogress[data-percentage="10"] .cprogress-right .cprogress-bar {
+  animation: loading-1 1.5s linear forwards;
+}
+.cprogress[data-percentage="10"] .cprogress-left .cprogress-bar {
+  animation: 0;
+}
+
+.cprogress[data-percentage="20"] .cprogress-right .cprogress-bar {
+  animation: loading-2 1.5s linear forwards;
+}
+.cprogress[data-percentage="20"] .cprogress-left .cprogress-bar {
+  animation: 0;
+}
+
+.cprogress[data-percentage="30"] .cprogress-right .cprogress-bar {
+  animation: loading-3 1.5s linear forwards;
+}
+.cprogress[data-percentage="30"] .cprogress-left .cprogress-bar {
+  animation: 0;
+}
+
+.cprogress[data-percentage="40"] .cprogress-right .cprogress-bar {
+  animation: loading-4 1.5s linear forwards;
+}
+.cprogress[data-percentage="40"] .cprogress-left .cprogress-bar {
+  animation: 0;
+}
+
+.cprogress[data-percentage="50"] .cprogress-right .cprogress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.cprogress[data-percentage="50"] .cprogress-left .cprogress-bar {
+  animation: 0;
+}
+
+.cprogress[data-percentage="60"] .cprogress-right .cprogress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.cprogress[data-percentage="60"] .cprogress-left .cprogress-bar {
+  animation: loading-1 1.5s linear forwards 1.5s;
+}
+
+.cprogress[data-percentage="70"] .cprogress-right .cprogress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.cprogress[data-percentage="70"] .cprogress-left .cprogress-bar {
+  animation: loading-2 1.5s linear forwards 1.5s;
+}
+
+.cprogress[data-percentage="80"] .cprogress-right .cprogress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.cprogress[data-percentage="80"] .cprogress-left .cprogress-bar {
+  animation: loading-3 1.5s linear forwards 1.5s;
+}
+
+.cprogress[data-percentage="90"] .cprogress-right .cprogress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.cprogress[data-percentage="90"] .cprogress-left .cprogress-bar {
+  animation: loading-4 1.5s linear forwards 1.5s;
+}
+
+.cprogress[data-percentage="100"] .cprogress-right .cprogress-bar {
+  animation: loading-5 0.5s linear forwards;
+}
+.cprogress[data-percentage="100"] .cprogress-left .cprogress-bar {
+  animation: loading-5 0.5s linear forwards 0.5s;
+}
+.cprogress[data-percentage="100"] > .cprogress-value{
+  color:#fff;
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #00c1c8) drop-shadow(0 0 5px #00ddff);
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #00c1c8) drop-shadow(0 0 5px #00ddff);
+}
+
+@keyframes loading-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(36);
+    transform: rotate(36deg);
+  }
+}
+@keyframes loading-2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(72);
+    transform: rotate(72deg);
+  }
+}
+@keyframes loading-3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(108);
+    transform: rotate(108deg);
+  }
+}
+@keyframes loading-4 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(144);
+    transform: rotate(144deg);
+  }
+}
+@keyframes loading-5 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180);
+    transform: rotate(180deg);
+  }
+}
+.cprogress {
+  margin-bottom: 1em;
+}
+
+
+/* different animation durations for reusing on glitch effect */
+.anim-speed-1:before {
+  animation-duration: 1s;
+}
+.anim-speed-1:after, .anim-speed-2:before {
+  animation-duration: 2s;
+}
+.anim-speed-2:after, .anim-speed-3:before {
+  animation-duration: 3s;
+}
+.anim-speed-3:after, .anim-speed-4:before {
+  animation-duration: 4s;
+}
+.anime-speed-4:after {
+  animation-duration: 5s;
+}
+/* keyframes for various animations */
+/* text-glitch */
+@keyframes noise-anim {
+  0% {
+    clip: rect(6px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(29px, 9999px, 5px, 0);
+  }
+  10% {
+    clip: rect(9px, 9999px, 60px, 0);
+  }
+  15% {
+    clip: rect(61px, 9999px, 99px, 0);
+  }
+  20% {
+    clip: rect(80px, 9999px, 49px, 0);
+  }
+  25% {
+    clip: rect(5px, 9999px, 68px, 0);
+  }
+  30% {
+    clip: rect(28px, 9999px, 54px, 0);
+  }
+  35% {
+    clip: rect(10px, 9999px, 67px, 0);
+  }
+  40% {
+    clip: rect(91px, 9999px, 60px, 0);
+  }
+  45% {
+    clip: rect(9px, 9999px, 67px, 0);
+  }
+  50% {
+    clip: rect(41px, 9999px, 79px, 0);
+  }
+  55% {
+    clip: rect(56px, 9999px, 6px, 0);
+  }
+  60% {
+    clip: rect(52px, 9999px, 58px, 0);
+  }
+  65% {
+    clip: rect(22px, 9999px, 67px, 0);
+  }
+  70% {
+    clip: rect(37px, 9999px, 15px, 0);
+  }
+  75% {
+    clip: rect(65px, 9999px, 51px, 0);
+  }
+  80% {
+    clip: rect(65px, 9999px, 75px, 0);
+  }
+  85% {
+    clip: rect(32px, 9999px, 66px, 0);
+  }
+  90% {
+    clip: rect(32px, 9999px, 17px, 0);
+  }
+  95% {
+    clip: rect(40px, 9999px, 91px, 0);
+  }
+  100% {
+    clip: rect(4px, 9999px, 99px, 0);
+  }
+}
+
+
+@keyframes noise-anim-2 {
+  0% {
+    clip: rect(89px, 9999px, 47px, 0);
+  }
+  5% {
+    clip: rect(89px, 9999px, 76px, 0);
+  }
+  10% {
+    clip: rect(26px, 9999px, 17px, 0);
+  }
+  15% {
+    clip: rect(62px, 9999px, 45px, 0);
+  }
+  20% {
+    clip: rect(63px, 9999px, 32px, 0);
+  }
+  25% {
+    clip: rect(82px, 9999px, 81px, 0);
+  }
+  30% {
+    clip: rect(48px, 9999px, 81px, 0);
+  }
+  35% {
+    clip: rect(65px, 9999px, 67px, 0);
+  }
+  40% {
+    clip: rect(78px, 9999px, 27px, 0);
+  }
+  45% {
+    clip: rect(19px, 9999px, 68px, 0);
+  }
+  50% {
+    clip: rect(93px, 9999px, 51px, 0);
+  }
+  55% {
+    clip: rect(96px, 9999px, 17px, 0);
+  }
+  60% {
+    clip: rect(2px, 9999px, 30px, 0);
+  }
+  65% {
+    clip: rect(90px, 9999px, 90px, 0);
+  }
+  70% {
+    clip: rect(95px, 9999px, 30px, 0);
+  }
+  75% {
+    clip: rect(70px, 9999px, 39px, 0);
+  }
+  80% {
+    clip: rect(13px, 9999px, 57px, 0);
+  }
+  85% {
+    clip: rect(24px, 9999px, 10px, 0);
+  }
+  90% {
+    clip: rect(59px, 9999px, 68px, 0);
+  }
+  95% {
+    clip: rect(58px, 9999px, 28px, 0);
+  }
+  100% {
+    clip: rect(92px, 9999px, 48px, 0);
+  }
+}
+
+/* spinning loader */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* pulse effect */
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(5,203,234, 0.8);
+    box-shadow: 0 0 0 0 rgba(5,203,234, 0.8);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 5px rgba(5,203,234, 0.3);
+      box-shadow: 0 0 0 5px rgba(5,203,234, 0.3);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 10px rgba(5,203,234, 0);
+      box-shadow: 0 0 0 10px rgba(5,203,234, 0);
+  }
+}
+/* blue pulse for fomo3d slow mode */
+@keyframes pulseblu {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(0,85,240, 0.8);
+    box-shadow: 0 0 0 0 rgba(0,85,240, 0.8);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 5px rgba(0,85,240, 0.3);
+      box-shadow: 0 0 0 5px rgba(0,85,240, 0.3);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 10px rgba(0,85,240, 0);
+      box-shadow: 0 0 0 10px rgba(0,85,240, 0);
+  }
+}
+/* green pulse for p3d awesome ui */
+@keyframes pulsegren {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(0,255,0, 0.8);
+    box-shadow: 0 0 0 0 rgba(0,255,0, 0.8);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 5px rgba(0,255,0, 0.3);
+      box-shadow: 0 0 0 5px rgba(0,255,0, 0.3);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 10px rgba(0,255,0, 0);
+      box-shadow: 0 0 0 10px rgba(0,255,0, 0);
+  }
+}
+/* pulse effect for tutorialarrows */
+@keyframes pulsedrop {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(5,203,234, 0.8));
+    -webkit-filter: drop-shadow(0 0 0 rgba(5,203,234, 0.8));
+    left:-0.1rem;
+    color: #00ddff;
+  }
+  50% {
+    left:-0.5rem;
+  }
+  70% {
+      filter: drop-shadow(0 0 25px rgba(5,203,234, 0.6));
+      -webkit-filter: drop-shadow(0 0 25px rgba(5,203,234, 0.6));
+  }
+  100% {
+      filter: drop-shadow(0 0 40px rgba(5,203,234, 0));
+      -webkit-filter: drop-shadow(0 0 40px rgba(5,203,234, 0));
+      left:-0.1rem;
+  }
+}
+/* team select */
+@keyframes slowpulse {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(5,203,234, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
+    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(5,203,234, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
+  }
+  60% {
+    filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(5,203,234, 1)) drop-shadow(0 0 5px rgba(255,0,255, 1));
+    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(5,203,234, 1)) drop-shadow(0 0 5px rgba(255,0,255, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(5,203,234, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
+    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(5,203,234, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
+  }
+}
+
+/* moving grid thing */
+.grid-container {
+  z-index:-1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  overflow: hidden;
+}
+
+.grid-top,
+.grid-bottom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-size: 50px 50px;
+}
+
+.grid-top {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 19%, rgba(184, 1, 179, 0.5) 24%, #b900b4 25%, #b900b4 26%, rgba(184, 1, 179, 0.5) 27%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0) 69%, rgba(184, 1, 179, 0.5) 74%, #b900b4 75%, #b900b4 76%, rgba(184, 1, 179, 0.5) 77%, rgba(0, 0, 0, 0) 82%, rgba(0, 0, 0, 0)), linear-gradient(90deg, rgba(0, 0, 0, 0) 19%, rgba(184, 1, 179, 0.5) 24%, #b900b4 25%, #b900b4 26%, rgba(184, 1, 179, 0.5) 27%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0) 69%, rgba(184, 1, 179, 0.5) 74%, #b900b4 75%, #b900b4 76%, rgba(184, 1, 179, 0.5) 77%, rgba(0, 0, 0, 0) 82%, rgba(0, 0, 0, 0));
+  -webkit-transform: rotateX(-70deg) scale(2);
+          transform: rotateX(-70deg) scale(2);
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  box-shadow: inset 0px -100px 100px 100px #302430;
+  animation: rad 1s reverse linear infinite;
+}
+
+.grid-bottom {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 19%, rgba(184, 1, 179, 0.5) 24%, #b900b4 25%, #b900b4 26%, rgba(184, 1, 179, 0.5) 27%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0) 69%, rgba(184, 1, 179, 0.5) 74%, #b900b4 75%, #b900b4 76%, rgba(184, 1, 179, 0.5) 77%, rgba(0, 0, 0, 0) 82%, rgba(0, 0, 0, 0)), linear-gradient(90deg, rgba(0, 0, 0, 0) 19%, rgba(184, 1, 179, 0.5) 24%, #b900b4 25%, #b900b4 26%, rgba(184, 1, 179, 0.5) 27%, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0) 69%, rgba(184, 1, 179, 0.5) 74%, #b900b4 75%, #b900b4 76%, rgba(184, 1, 179, 0.5) 77%, rgba(0, 0, 0, 0) 82%, rgba(0, 0, 0, 0));
+  -webkit-transform: rotateX(70deg) scale(2);
+          transform: rotateX(70deg) scale(2);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  box-shadow: inset 0px 100px 100px 100px #302430;
+  -webkit-animation: rad 1s linear infinite;
+          animation: rad 1s linear infinite;
+  height:40rem;
+  margin-top:-5rem;
+}
+
+@keyframes rad {
+  100% {
+    background-position: 0px 50px;
+  }
+}
+
+
+/* responsive things for mobile */
+@media only screen and (max-width: 750px) {
+  .display-1 {
+    font-size:4rem;
+  }
+  .mobile-image {
+	  width: calc(5vh + 5vw)
+  }
+}
+/* hide mobile-only things */
+@media only screen and (min-width:999px){
+  .only-mobile {
+    display: none!important;
+  }
+  .navbar-expand-lg {
+    flex-wrap:wrap!important;
+  }
+}
+/* adjust for smaller viewports */
+@media only screen and (max-width: 992px){
+  #buyTabs, #statTabs {
+    font-size: 0.8rem;
+  }
+  .only-mobile {
+    color: white;
+  }
+  .no-mobile {
+    display: none!important;
+  }
+   .mobile-image {
+	  width: calc(10vh + 10vw)
+  }
+}
+/* responsive for phonescreens */
+@media only screen and (max-width:375px){
+  .no-mobile {
+    display: none;
+  }
+  .display-1, h4.display-4 {
+    font-size: 2rem;
+  }
+  .display-3 > span {
+    font-size: 2.5rem;
+  }
+  .headtimer {
+    font-size:1rem!important;
+  }
+  .ticktock {
+    padding-left:0!important;
+	min-width:25px;
+  }
+  #ceolink, #ceolinkid, #ceolinkvanity {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #buyTabs, #statTabs {
+    font-size: 1rem;
+    -webkit-box-orient: vertical!important;
+    -webkit-box-direction: normal!important;
+    -ms-flex-direction: column!important;
+    flex-direction: column!important;
+  }
+  #buyTabs > .nav-item, 
+  #statTabs > .nav-item {
+    background-color: #2d3238!important;
+  }
+  #buyTabs >.nav-item a,
+  #statTabs > .nav-item a {
+    color:#575a5e!important;
+  }
+  #buyTabs >.nav-item a.active,
+  #statTabs > .nav-item a.active {
+    color:white!important;
+  }
+  #buyTabs > .nav-item:first-of-type, 
+  #statTabs > .nav-item:first-of-type {
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
+  }
+}
+
+.btn {
+  white-space: normal;
+}
+
+/* pepe */
+.animation {
+  position: fixed;
+  bottom:-155px;
+}
+
+/*Image for Key Buttons*/
+/* fookin justo ruinin' ur css m8 */
+.tooltipyellow {
+	color:#cf9c41;
+}
+.popoverglow {
+  text-shadow: 0 0 2px #2b002b, 0 0 5px #00c1c8, 0 0 2px #00ddff;
+  color:white;
+}
+.titlepopoutrightmini{
+   text-shadow: 1px 1px #9d009d, 
+                2px 2px #9d009d, 
+                3px 3px #9d009d;
+}
+.titlepopoutrightminigreen{
+   text-shadow: 1px 1px #307b30, 
+                2px 2px #307b30, 
+                3px 3px #307b30;
+}
+.popoverrightmini{
+   text-shadow: 1px 1px #ff9fff, 
+                2px 2px #ff9fff;
+}
+.titlepopout-right-mini-grey-glow{
+   text-shadow: 1px 1px #565656, 
+                2px 2px #565656,
+				0 0 2px #2b002b,
+				0 0 5px #00c1c8,
+				0 0 2px #00ddff;
+	color:white;			
+}
+.titlepopout-right-mini-grey-shadow{
+   text-shadow: 1px 1px #565656, 
+                2px 2px #565656,
+				0 0 2px #565656,
+				0 0 5px #565656,
+				0 0 2px #565656;
+	color:white;			
+}
+.titlepopout-right-mini-grey-ethereum{
+   text-shadow: 1px 1px #494874, 
+                2px 2px #494874,
+				0 0 2px #1d2033,
+				0 0 5px #1d2033,
+				0 0 2px #1d2033;
+	color:#1d2033;			
+}
+.titlepopout-right-mini-grey{
+   text-shadow: 1px 1px #565656, 
+                2px 2px #565656;
+}
+.titlepopoutrightminiinverse{
+   color: #e84fe8;
+   text-shadow: 1px 1px #000, 
+                2px 2px #000, 
+                3px 3px #000;
+}
+.popover{
+	width: 100%;
+    max-width: 500px;
+}
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+.dropdown:toggle{
+	background-color: transparent;
+}
+
+.dropdown-menu{
+	background-color: #212529;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+	background-color: transparent;
+}
+
+ /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 1rem;
+  margin-bottom: -.2rem;
+  margin-left: .3rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  display:none;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 0.8rem;
+  width: 0.8rem;
+  left: 0.2rem;
+  bottom: 0.1rem;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #21ABF3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ab21f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(0.8rem);
+  -ms-transform: translateX(0.8rem);
+  transform: translateX(0.8rem);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 26px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
+
+.dropdown-item:hover {
+  background-color: rgb(0, 221, 255);
+  color: black;
+}
+.dropdown-item-p3d:hover {
+  background-color: rgb(0, 255, 0) !important;
+  color: black;
+}
+
+.nav-pills .show>.nav-link {
+  background-color: #00ddff;
+}
+
+/* alertify modifications for fomo3d */
+
+
+/*JUSTO CHANGE THE COLORS OF THE NOTIFS HERE*/
+/* .alertify-logs>*, */
+/* .alertify-logs>.default { */
+  /* background: rgba(0, 0, 0, .8) */
+/* } */
+
+/* .alertify-logs>.error { */
+  /* background: rgba(244, 67, 54, .8) */
+/* } */
+
+/* .alertify-logs>.success { */
+  /* background: rgba(125, 76, 175, .9) */
+/* } */
+
+.success {
+	 background: rgba(125, 76, 175, .9);
+}
+
+/* BASH related styling pls no change */
+#terminal {
+  position: absolute;
+  background-color: black;
+  color: #8e8e8e;
+  font-family: "Lucida Console", Monaco, monospace;
+  width: 100%;
+  height: 100%;
+  overflow-y:auto;
+  z-index: 1000000;
+  top:0;
+  position: fixed;
+}
+#commandLine li.intro {
+  white-space: pre-wrap!important;
+}
+#commandLine li {
+  list-style:none;
+}
+#commandLine input {
+  border: none;
+  color: #8e8e8e;
+  background-color: black;
+  width: 80%;
+}
+#commandLine input:focus {
+  outline-width:0;
+}
+#commandLine .error {
+  color: red;
+}
+#commandLine .good {
+  color: green;
+}
+#commandLine .ps1 {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; 
+}
+
+/*body
+{
+background:url(static/bg290.jpg);
+background-size:100% 806px;
+-moz-background-size:100% 406px;
+background-repeat:repeat-y;
+background-attachment: fixed;
+filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+}*/
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #afa698;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 13px;
+	line-height: 1.7em; 
+	background-color: #291a07;
+	background-image: url(static/bg29000.jpg);
+	background-position: top center;
+	background-repeat: no-repeat
+}
+
+.antzone, .antzone::before, .antzone::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.antzone {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  color: #69ca62;
+  box-shadow: inset 0 0 0 1px rgba(105, 202, 98, 0.5);
+}
+.antzone::before, .antzone::after {
+  content: '';
+  z-index: 1;
+  margin: -5%;
+  box-shadow: inset 0 0 0 2px;
+  animation: clipMe 8s linear infinite;
+}
+.antzone::before {
+  animation-delay: -4s;
+}
+@keyframes clipMe {
+  0%, 100% {
+    clip: rect(0px, 220.0px, 2px, 0px);
+  }
+  25% {
+    clip: rect(0px, 2px, 220.0px, 0px);
+  }
+  50% {
+    clip: rect(218.0px, 220.0px, 220.0px, 0px);
+  }
+  75% {
+    clip: rect(0px, 220.0px, 220.0px, 218.0px);
+  }
+}
+/*.bet-action-btn{position:relative;width:auto;height:84px;text-align:center;line-height:84px;margin-top:144px;margin-bottom:60px;padding:0 72px;border-radius:30px;background:-webkit-linear-gradient(160deg,#996600,#FF9900 50%,#FFCC33);background:-o-linear-gradient(160deg,#996600 0,#FF9900 50%,#FFCC33 100%);background:linear-gradient(-70deg,#996600,#FF9900 50%,#FFCC33);-webkit-box-shadow:13px 25px 32px 0 rgba(21,6,37,.43);box-shadow:13px 25px 32px 0 rgba(21,6,37,.43)}*/
+</style>
+</head>
+<body>
+<div id="root" style="">
+<div id="app_wrapper">
+  <div class="header">
+	<div class="logo-container" >
+	 <img src="static/llg.png" alt="" title="" style="width:100%;height:auto;" />
+	 <h1 style="margin-left:3px;color:#FFCC33;">SFD</h1>
+	</div>
+	<div class="" style="text-align:right;width:100%;font-size:17px;">
+	
+	<ul class="menu" style="text-align:center;float:right;">
+		<li style="width:15%;"><div style="display:inline;"><a href="javascript:;" style="display:inline;" class="language_">English</a><i style="color:gray;" class="fa fa-angle-down fa-lg"></i></div>
+			<ul class="submenu">
+				<li><a href="javascript:;" class="language_en">English</a></li>
+				<li><a href="javascript:;" class="language_ru">русский</a></li>
+				<li><a href="javascript:;" class="language_ko">한국어</a></li>
+				<li><a href="javascript:;" class="language_zh">新加坡</a></li>
+				
+			</ul>
+		</li>
+	</ul>
+	</div>
+	<!--<div class="" style="text-align:right;width:100%;font-size:17px;"><a href="javascript:;" class="language_en" style="margin-right:20px;">English</a><a href="javascript:;" style="margin-right:20px;" class="language_ko">한국어</a><a href="javascript:;" class="language_zh">简体中文</a></div>-->
+  </div>
+  <div class="home-container">
+  <div class="bet-info-container">
+    <div class="current-pot-wrapper bet-operation" >
+    	<div class="current-pot-container">
+    		<span class="round" style="font-size:25px;font-style: italic;margin-top:15px;"><span class="lan-1">第</span> <span class="b-loop">--</span> <span class="lan-2">轮</span></span>
+        	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvCAYAAACLko51AAA1MElEQVR42u2dB3gTR/qH171gYzDFGNNLqIEQSiAVcne5y6VdckdC772bZrrpHdN7772HQEJPJT253OXS80+7S7lcgAQsacv8f9/srLySVrZkywXYeZ73kbSaXa007377zexqV5LsYhe72MUudrGLXexiF7vYxS52sYtd7GIXu9jFLnaxi13sYhe72MUudrGLXexSogvbllJT3ln1M3l31Y3y7tSH2I7k0kW+DkwKu3KlTbLz13saZf96/4PXf2n71+tX2na+frltB8eVtn+6dvmBltn/u7s6Y3Vi7BazS444khQmb09j8o4qqmtn1S9du6oec+1JG8UOlWvAMqXwQv3s71LjHd+3fuza93fPc/x032HHz21fuv6/th9kX37w82uX232Nx6+yrzz4afaVdu9mX253Ifty2/3XrrSbLv92759++eWOMnbr2UWSN1a6qGxKZfKWykzexkVmiMSavLfqh/KetEnOPSmN/7evbNKXm6VYipIFibDsmypxl99vUtPxaavVji9aK44v2zDHV3ez7G/vZdn/Bj/cz7J/eoBl/68ty/6lHYPA4Hcs+4o3D151XG236drle1ow1ibObsVbNfpuSPqdsi6FKesBSbw5VZd4OyTeVZXJe6sp8v7qn7sOVDshH6y2zHWoarrjSJUnXYertMo+XKkGO1o+0SpKf3csNZ5dSqvieq3uXdmvN+rmeKvpQud7d5x3ftDc6fhHC+b4V0vm+LgVc3x6F3N83po5/q8Ny/7mHpb9HST+/j5d5P+SyO10ka/4Snz98oPZiNLnHVceGHr1avPydmveavLOik9VVlZgyuqKTFlLEldi8kaSGJF4q5B4J0XjakzeV12TD1RXlMM1HfKRmtddx2r/6ny2zlXXiTq/OJ+r+7Xz+ds+dZ6u94XzbP2fnBcaXHG+2OhXxyuNrjtfa+xyvt5Ec77RlDnfbsYc74K/N2eODyDxh5D4oxyJsxGNs7++R0RjkvgBEY1J4gctJUYkln9Dnmy35q0mb6YUKy9J/o+yrBxTVpRnXOQ1EJmi8YZKIhqbRKZorIvM5AM1mHywJnMdqcUgMnM9W4e5nqvLXM/XY67T4Ex95jrXgLkuNGQQmTlfbsycrzVhEJk537qDi+x8905dZHM0/gyR+Is2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" alt="" />
+        	
+        	<div style="min-height: 90px; line-height: 90px;">
+         		<div class="ant-spin ant-spin-sm ant-spin-spinning">
+		 		<div class="count-down bet-info-item">
+			
+					<div class="b-dtime" style="font-size:35px;color:yellow;font-weight:bold;color:#FFCC33">00:00:00</div>
+				</div>
+				<p>
+        			<span class="tip"><span class="lan-3">或 离开奖还剩</span>&nbsp;&nbsp;<span style="font-weight:bolder;font-size:26px;color:#fcd21c;font-style:italic;" class="g_remain_qeth"> -- </span></span>
+				</p>
+		 		<div class="today-bet bet-info-item">
+        			<span><span class="lan-4">奖池</span> &nbsp;&nbsp;<span class="b-pot"> -- </span> ETH</span>
+        		<div>
+         		
+        		
+				
+				<p>
+        			<span class="tip" style="margin-right:10px;"><i class="fa fa-diamond" style="color:red;margin-right:2px;"></i><span class="lan-5">最小投资额</span>：<span style="font-size:20px;font-style:italic;" class="set_min"> -- </span></span>
+					<span class="tip" style="margin-right:10px;"><i class="fa fa-diamond" style="color:red;margin-right:2px;"></i><span class="lan-6">收益率</span>：<span style="font-size:20px;font-style:italic;" class="set_q"> -- </span>‰</span>
+					<span class="tip" style="margin-right:10px;"><i class="fa fa-free-code-camp" style="color:red;margin-right:2px;"></i><span class="lan-7">燃烧的总门票数</span>：<span style="font-size:20px;font-style:italic;" class="set_burn"> -- </span></span>
+					<span class="tip" style="margin-right:10px;"><i class="fa fa-subscript" style="color:red;margin-right:2px;"></i><span class="lan-8">燃烧倍率</span>：<span style="font-size:20px;font-style:italic;" class="set_burn_times"> -- </span>&nbsp;&nbsp;<span class="lan-63"></span></span>
+        		</p>
+				
+				
+				<!--<p>
+        			<span class="tip lan-5">区块链时间根据打包时间确定，请注意时间偏差，每20秒重新同步，或手动刷新页面</span>
+        		</p>-->
+         		<i class="unit"></i>
+        		</div>
+       			</div>
+				
+         		</div>
+				
+				
+        	</div>
+       </div>
+      </div>
+	  
+      <div class="bet-info container">
+		<div class="container">
+					<div class="row marginb distribution"> 
+                                    <div class="col"> 
+                                        <div class="row"> 
+                                            <div class="col-xs-6 col-md-4 team" style="color:#2ecc71"> 
+                                                <label class="teamselector"> 
+                                                    <input class="form-check-input form-radio teamsave" type="radio" autocomplete="off" name="teamselect" value="a" id="teamsnek"> 
+                                                    
+                                                    <img src="static/10000.png" alt=""> 
+                                                    <h5>1-10 ETH</h5> 
+                                                    <p class="lan-66">骑士</p> 
+                                                </label> 
+                                                <p style="color:#2ecc71"><i class="fa fa-diamond fa-lg"></i> <span class="lan-67">3倍收益 / 每天</span>2‰</p>
+                                            </div> 
+                                            <div class="col-xs-6 col-md-4 team" style="color:#2ecc71"> 
+                                                <label class="teamselector"> 
+                                                    <input class="form-check-input form-radio teamsave" type="radio" autocomplete="off" name="teamselect" value="b" id="teamwhale"> 
+                                                    
+                                                    <img src="static/11111.png" alt=""> 
+                                                    <h5>11-100 ETH</h5> 
+                                                    <p class="lan-68">伯爵</p> 
+                                                </label> 
+                                                <p style="color:#2ecc71"><i class="fa fa-diamond fa-lg"></i> <span class="lan-69">4倍收益 / 每天</span>2‰</p> 
+                                            </div> 
+                                            <div class="col-xs-6 col-md-4 team" style="color:#2ecc71"> 
+                                                <label class="teamselector"> 
+                                                    <input class="form-check-input form-radio teamsave" type="radio" autocomplete="off" name="teamselect" value="c" id="teambull"> 
+                                                    
+                                                    <img src="static/12222.png" alt=""> 
+                                                    <h5>>= 101 ETH</h5> 
+                                                    <p class="lan-70">国王</p> 
+                                                </label> 
+                                                <p style="color:#2ecc71"><i class="fa fa-diamond fa-lg"></i> <span class="lan-71">5倍收益 / 每天</span>2‰ </p> 
+                                            </div> 
+                                           
+                                            
+                                        </div></div></div>
+				</div>
+      </div>
+      
+     </div>
+     <div class="guess-news-container">
+
+      <div class="guess-news-center quick-join" style="background-color:#FF9900;">
+       <a href="javascript:;"><p><i class="fa fa-angle-double-right fa-lg"></i>&nbsp;&nbsp;<span class="lan-9">快速投资1 ETH</span>&nbsp;&nbsp;<i class="fa fa-angle-double-left fa-lg"></i></p></a>
+       
+      </div>
+      
+     </div>
+     <div class="bet-operation">
+      <div class="operation-left operation-tab custom-tab zone01">
+       <div class="ant-tabs ant-tabs-top ant-tabs-line">
+        <div role="tablist" class="ant-tabs-bar" tabindex="0">
+         <div class="ant-tabs-nav-container">
+          <span unselectable="unselectable" class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-prev-icon"><i class="anticon anticon-left ant-tabs-tab-prev-icon-target">
+             <svg viewbox="64 64 896 896" class="" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path>
+             </svg></i></span></span>
+          <span unselectable="unselectable" class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-next-icon"><i class="anticon anticon-right ant-tabs-tab-next-icon-target">
+             <svg viewbox="64 64 896 896" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>
+             </svg></i></span></span>
+          <div class="ant-tabs-nav-wrap">
+           <div class="ant-tabs-nav-scroll">
+            <div class="ant-tabs-nav ant-tabs-nav-animated">
+             <div>
+              <div role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab">
+               <span class="lan-10">现在参与</span>
+              </div>
+              <div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab">
+               <span class="lan-11">我的邀请</span>
+              </div>
+              <div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab">
+               <span class="lan-12">我的存款</span>
+              </div>
+             </div>
+             <div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="transform: translate3d(0px, 0px, 0px); width: 180px; display: block;"></div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="ant-tabs-content ant-tabs-content-animated" style="margin-left: 0%;">
+         <div role="tabpanel" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active" style="border-radius: 0px 20px 20px; min-height: 438px;">
+          <div class="bet-action-tab">
+		  
+		   
+           <div class="bet-action-btn join-bet-btn buywitheth" style="margin-bottom:25px;margin-top:85px;">
+		   
+            <span class="lan-64">立即参与</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><input type="text" class="ethinput" style="width:100px;background-color:transparent;border:0;box-shadow: 0 0 20px #F8A0F8;border-radius:10px;padding-left:8px;height:60px;" value="1" /> ETH</span>
+			
+            <img src="" alt="" />
+           
+           </div>
+		   
+		   <div style="width:50%;text-align:center;margin-bottom:20px;margin-top:10px;border-bottom:0px groove #fcd21c;">
+				<span style="color:#fcd21c;margin-right:10px;font-size:16px;" class="lan-13">或</span><i class="fa fa-angle-double-right" style="color:#a9a9a9;"></i>&nbsp;<a class="copy-contract-addr lan-14" href="javascript:;" style="border-radius:20px;height:40px;">  复制合约地址直接转账</a>
+         		
+			</div>
+			<div style="color:#a9a9a9;font-size:13px;"><i class="fa fa-lightbulb-o fa-2x"></i>&nbsp;&nbsp;<span class="lan-72">需要的门票 = 投资额 X 倍率</span>(<span class="set_burn_times"></span>) </div>
+		   <!--<div style="color:#a9a9a9;font-size:12px;">imtoken等钱包可以直接转账至合约地址</div>-->
+			<!--<p class="wallet-balance"><span class="lan-16">我的余额: </span>:&nbsp;<span class="wallet_amt">0 ETH</span></p>
+			<p class="wallet-balance"><span class="lan-15">我的地址:</span>:&nbsp;<span class="wallet_address"></span></p>-->
+           
+           <!--<p class="user-join-times" style="color: rgb(164, 29, 196);"><span><span class="lan-17">我的本轮累计参与：</span><span class="cur_loop_join_amt">0 ETH</span></span></p>-->
+			
+		  </div>
+		  
+		  
+		  
+         </div>
+         
+         <div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive" style="border-radius: 20px; min-height: 438px;">
+         	<div class="invitation-tab">
+         	<div class="inviter" style="margin-bottom:15px;background:rgba(0,0,0,0.5);border-radius:10px;"><span class="lan-18">我的直推数 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="referrer my-recomand-count">--</span></div>
+         	
+         	<div class="inviter" style="margin-bottom:5px;background:rgba(0,0,0,0.5);border-radius:10px;"><span class="lan-19">我的邀请人</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="referrer my-inviter">--</span></div>
+         	<div class="nickname-input-wrapper">
+			
+         	
+			<div class="qrcode" style="margin-top:28px;text-align:center;">
+				<a class="display_qrcode lan-20" href="javascript:;" style="">展示推荐二维码</a>
+         		
+			</div>
+			
+			<div class="" style="margin-top:8px;text-align:center;">
+				<a class="my-recomand-link-btn lan-21" style="" href="javascript:;">点击复制我的推荐链接或扫描推荐二维码</a>
+         		
+			</div>
+         	
+         	
+         	</div></div>
+         </div>
+         <div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive" style="border-radius: 20px 0px 20px 20px; min-height: 438px;">
+         <div class="user-income" style="">
+         <!--<div class="title" style="height:35px;margin-top:3px;margin-bottom:15px;">
+         
+         <span><span class="my-join-amt lan-22">本轮参与总额:</span>:&nbsp;<span id="cur_loop_join_amt">--</span></span></div>-->
+		 
+		 
+         <table style="width:100%;border-bottom:1px solid #fcd21c;">
+			<tr><th class="lan-24">普通收益</th><td class="valut_gen">--</td></tr>
+			<tr><th class="lan-25">动态收益</th><td class="valut_dy">--</td></tr>
+			<tr><th class="lan-26">中奖收益</th><td class="valut_win">--</td></tr>
+			
+			
+		</table>
+		<table style="width:100%;">
+			<tr><th class="lan-23">总额</th><td class="valut_gen_win">--</td></tr>
+			
+			
+		</table>
+         
+		 <table style="width:100%;border-bottom:1px solid #fcd21c;">
+			<tr><th class=""><input type="text" class="reethinput" style="width:60%;background-color:transparent;border:0;box-shadow: 0 0 3px #F8A0F8;border-radius:10px;padding-left:8px;height:40px;font-weight:bold;margin-right:3px;" value="0.5" /> ETH</th><td class=""><button type="button" style="width:110px;margin-left:15px;" class="my-reload-btn cus_btn"><span class="lan-27">复投</span></button></td></tr>
+			
+			
+		</table>
+         <!--<div class="award-withdraw" style="display:block;text-align:center;border:0px solid;color:#a9a9a9;">
+         <div><span class="lan-24">普通收益</span>:&nbsp;<span class="valut_gen">0</span>&nbsp;ETH&nbsp;+</div>
+		 <div><span class="lan-25">动态收益</span>:&nbsp;<span class="valut_dy">0</span>&nbsp;ETH&nbsp;+</div>
+         <div><span class="lan-26">中奖收益</span>:&nbsp;<span class="valut_win">0</span>&nbsp;ETH&nbsp;&nbsp;&nbsp;</div>
+		 <div class="award-amount" style="margin:10px 0;border-top:1px groove #fcd21c;text-align:center;font-weight:normal;font-size:16px;"><span class="lan-23">= 总额</span>:&nbsp;<span class="valut_gen_win">0</span>&nbsp;ETH&nbsp;</div>
+		 
+		 </div>-->
+         <!--<div style="border-bottom:1px groove #fcd21c;margin-bottom:20px;width:100%;text-align:center;">
+			<span style="color:#fcd21c;font-weight:bold;"><input type="text" class="reethinput" style="width:50%;background-color:transparent;border:0;box-shadow: 0 0 3px #F8A0F8;border-radius:10px;padding-left:8px;height:40px;font-weight:bold;margin-right:3px;" value="0.5" /> ETH</span>
+			<button type="button" style="width:100px;margin-left:15px;" class="my-reload-btn cus_btn"><span class="lan-27">复投</span></button>
+		 </div>-->
+         <table style="width:100%;margin-top:35px;">
+			<tr><th colspan="2" style="text-align:center;"><button type="button" class="ant-btn withdraw-btn my-withdraw-btn"><span class="lan-28">提现到我的钱包</span></button></th></tr>
+			
+			
+		</table>
+         <!--<button type="button" class="ant-btn withdraw-btn my-withdraw-btn"><span class="lan-28">提现到我的钱包</span></button><a class="check-genealogy-link"><span></span></a>-->
+         </div></div>
+        </div>
+       </div>
+      </div>
+      <div class="operation-right operation-tab custom-tab zone02">
+       <div class="ant-tabs ant-tabs-top ant-tabs-line">
+        <div role="tablist" class="ant-tabs-bar" tabindex="0">
+         <div class="ant-tabs-nav-container">
+          <span unselectable="unselectable" class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-prev-icon"><i class="anticon anticon-left ant-tabs-tab-prev-icon-target">
+             <svg viewbox="64 64 896 896" class="" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path>
+             </svg></i></span></span>
+          <span unselectable="unselectable" class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-next-icon"><i class="anticon anticon-right ant-tabs-tab-next-icon-target">
+             <svg viewbox="64 64 896 896" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>
+             </svg></i></span></span>
+          <div class="ant-tabs-nav-wrap">
+           <div class="ant-tabs-nav-scroll">
+            <div class="ant-tabs-nav ant-tabs-nav-animated">
+             <div>
+              <div role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab">
+               <span class="lan-29">大奖池数据</span>
+              </div>
+              <div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab">
+               <span class="lan-30">我的统计</span>
+              </div>
+              <div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab">
+               <span class="lan-31">其它数据</span>
+              </div>
+             </div>
+             <div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="transform: translate3d(0px, 0px, 0px); width: 180px; display: block;"></div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="ant-tabs-content ant-tabs-content-animated" style="margin-left: 0%;">
+         <div role="tabpanel" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active" style="border-radius: 0px 20px 20px; min-height: 438px;">
+          <div class="everyday-guess" style="margin-top:20px;">
+           
+            <div class="lan-32" style="border-bottom:3px groove #fcd21c;width:100%;padding:10px 0;color:white;font-weight:bolder;font-size:16px;">投资额数据</div>
+            <table style="width:100%;">
+            	<tr><th class="lan-33">第1投资额：</th><td id="b_p1">--</td></tr>
+            	<tr><th class="lan-34">第2投资额：</th><td id="b_p2">--</td></tr>
+            	<tr><th class="lan-35">第3投资额：</th><td id="b_p3">--</td></tr>
+				
+				
+            </table>
+			
+			
+            <table style="width:100%;">
+            	
+				<tr><th class="lan-36">投资第1玩家：</th><td id="b_p4">--</td></tr>
+            	<tr><th class="lan-37">投资第2玩家：</th><td id="b_p5">--</td></tr>
+            	<tr><th class="lan-38">投资第3玩家：</th><td id="b_p6">--</td></tr>
+            	
+            </table>
+			
+			<div class="lan-39" style="border-bottom:3px groove #fcd21c;width:100%;padding:10px 0;color:white;font-weight:bolder;font-size:16px;margin-top:20px;">投资额数据</div>
+            <table style="width:100%;">
+            	
+				
+            	<tr><th class="lan-40">奖池累计额：</th><td id="b_p7">--</td></tr>
+            </table>
+           
+          </div>
+         </div>
+         <div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive" style="border-radius: 20px; min-height: 438px;">
+		 <div class="everyday-guess" style="margin-top:20px;">
+           
+         	<div class="lan-41" style="border-bottom:3px groove #fcd21c;width:100%;padding:10px 0;color:white;font-weight:bolder;font-size:16px;">个人统计</div>
+			<table style="width:100%;">
+            	
+            	<tr><th id="" class="lan-42">离下次收益还剩</th><td id="tol_s1" style="font-size:16px;font-style:italic;">--</td></tr>
+            	<tr><th id=""><span class="lan-43">离</span><span id="tol_s2">--</span><span class="lan-44">倍出局还剩</span></th><td id="tol_s3">--</td></tr>
+				
+				<tr><th class="lan-45" id="">我的总参与额</th><td id="tol_s4">--</td></tr>
+				<tr><th class="lan-46" id="">我的本轮参与额</th><td id="tol_s5">--</td></tr>
+				
+				<tr><th class="lan-47" id="">我的静态收益</th><td id="tol_s6">--</td></tr>
+				<tr><th class="lan-48" id="">我的动态收益</th><td id="tol_s7">--</td></tr>
+            	<tr><th class="lan-65" id="">我的剩余门票数</th><td id="tol_s8">--</td></tr>
+            </table>
+         	
+			</div>
+         </div>
+		 <div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive" style="border-radius: 20px 0px 20px 20px; min-height: 438px;">
+		 <div class="everyday-guess" style="margin-top:20px;">
+           
+		   
+		    <div class="lan-49" style="border-bottom:3px groove #fcd21c;width:100%;padding:10px 0;color:white;font-weight:bolder;font-size:16px;">其它数据</div>
+         	<table style="width:100%;">
+            	<tr><th style="width:30%" class="lan-50">额外收益</th><td id="parter_p1">--</td></tr>
+				<tr><th style="width:30%" class="lan-51">累计燃烧</th><td id="burn_b1">--</td></tr>
+            </table>
+			
+			<div class="lan-52" style="border-bottom:3px groove #fcd21c;width:100%;padding:10px 0;color:white;font-weight:bolder;font-size:16px;margin-top:20px;">上一轮数据</div>
+         	<table style="width:100%;">
+            	<tr><th class="lan-53">第1投资额</th><td id="his_p1">--</td></tr>
+            	<tr><th class="lan-54">第2投资额</th><td id="his_p2">--</td></tr>
+            	<tr><th class="lan-55">第3投资额</th><td id="his_p3">--</td></tr>
+				
+				
+            </table>
+			
+			<table style="width:100%;">
+            	
+				<tr><th class="lan-56">投资第1玩家</th><td id="his_p4">--</td></tr>
+            	<tr><th class="lan-57">投资第2玩家</th><td id="his_p5">--</td></tr>
+            	<tr><th class="lan-58">投资第3玩家</th><td id="his_p6">--</td></tr>
+				
+            	
+            </table>
+			</div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     
+	 
+	 
+	
+	
+	
+	
+	<div class="bet-operation">
+      <div class="operation-left operation-tab custom-tab zone03">
+       <div class="ant-tabs ant-tabs-top ant-tabs-line">
+        <div role="tablist" class="ant-tabs-bar" tabindex="0">
+         <div class="ant-tabs-nav-container">
+          <span unselectable="unselectable" class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-prev-icon"><i class="anticon anticon-left ant-tabs-tab-prev-icon-target">
+             <svg viewbox="64 64 896 896" class="" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path>
+             </svg></i></span></span>
+          <span unselectable="unselectable" class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-next-icon"><i class="anticon anticon-right ant-tabs-tab-next-icon-target">
+             <svg viewbox="64 64 896 896" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>
+             </svg></i></span></span>
+          <div class="ant-tabs-nav-wrap">
+           <div class="ant-tabs-nav-scroll">
+            <div class="ant-tabs-nav ant-tabs-nav-animated">
+             <div>
+              <div role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab">
+               <span class="lan-59">注册推荐人</span>
+              </div>
+              
+             </div>
+             <div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="transform: translate3d(0px, 0px, 0px); width: 180px; display: block;"></div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="ant-tabs-content ant-tabs-content-animated" style="margin-left: 0%;">
+         <div role="tabpanel" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active" style="border-radius: 0px 20px 20px; min-height: 438px;">
+          <div class="user-income" style="">
+           
+			
+			<div style="width:100%;">
+				<table style="width:100%;margin-top:35px;"">
+					<tr><th class="lan-60">我的地址: </th><td><input readonly="readonly" class="r_r wallet_address_input" type="text" /></td></tr>
+					
+				</table>
+				<table style="width:100%;margin-top:35px;">
+					
+					
+					<tr><th class="lan-61">推荐人: </th><td><input  id="input_recomander" class="r_r" type="text" /></td></tr>
+				</table>
+				
+				<div style="border-top:1px solid #fcd21c;margin-top:35px;">
+				<table style="width:100%;margin-top:35px;">
+					<tr><th colspan="2" style="text-align:center;"><button id="reg_recomander" type="button" class="cus_btn"><span class="lan-62">注册</span></button></th></tr>
+					
+					
+				</table>
+				<div>
+				<!--<table>
+					<tr><td class="lan-60" style="height:30px;line-height:30px;text-align:left;color:white;">我的地址: </td></tr>
+					<tr><td><input readonly="readonly" class="r_r wallet_address_input" type="text" /></td></tr>
+					<tr><td class="lan-61" style="height:30px;line-height:30px;text-align:left;color:white;">推荐人地址: </td></tr>
+					<tr><td><input class="r_r" id="input_recomander" type="text" /></td></tr>
+					<tr><td style="text-align:left;margin-top:15px;"></td></tr>
+				</table>
+				
+				<p style="text-align:center;">
+				
+					<button type="button" style="width:100px;margin-left:0px;" class="cus_btn" id="reg_recomander"><span class="lan-62">注册</span></button>
+				</p>-->
+			</div>
+	 
+	 
+	
+		   
+			
+           
+          </div>
+         </div>
+		 
+		 </div></div></div></div>
+	 
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/alertifyjs-alertify.js/1.0.11/js/alertify.js"></script>
+<script src="static/lib1.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bignumber.js/8.0.1/bignumber.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script src="https://cdn.bootcss.com/store.js/1.3.20/store.min.js"></script>
+<script type="text/javascript">
+
+var abi = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "activate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			},
+			{
+				"name": "_rate",
+				"type": "uint256"
+			},
+			{
+				"name": "_top",
+				"type": "bool"
+			},
+			{
+				"name": "_cal",
+				"type": "bool"
+			}
+		],
+		"name": "addOrSetNode",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_recommander",
+				"type": "address"
+			}
+		],
+		"name": "buy",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "buyT",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_a0",
+				"type": "address"
+			}
+		],
+		"name": "infoSos",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_recommander",
+				"type": "address"
+			}
+		],
+		"name": "pubreg",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_sender",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			},
+			{
+				"name": "_extraData",
+				"type": "bytes"
+			}
+		],
+		"name": "receiveApproval",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_recommander",
+				"type": "address"
+			},
+			{
+				"name": "_eth",
+				"type": "uint256"
+			}
+		],
+		"name": "reLoad",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_oneB",
+				"type": "uint256"
+			},
+			{
+				"name": "_twoB",
+				"type": "uint256"
+			},
+			{
+				"name": "_threeB",
+				"type": "uint256"
+			},
+			{
+				"name": "_fourB",
+				"type": "uint256"
+			},
+			{
+				"name": "_fiveB",
+				"type": "uint256"
+			},
+			{
+				"name": "_sixB",
+				"type": "uint256"
+			},
+			{
+				"name": "_sevenB",
+				"type": "uint256"
+			},
+			{
+				"name": "_eightB",
+				"type": "uint256"
+			},
+			{
+				"name": "_nineB",
+				"type": "uint256"
+			},
+			{
+				"name": "_tenB",
+				"type": "uint256"
+			}
+		],
+		"name": "set10FloorRate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_min",
+				"type": "uint256"
+			}
+		],
+		"name": "setBpool4Min",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_min",
+				"type": "uint256"
+			}
+		],
+		"name": "setBpoolBlock4Min",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_rate",
+				"type": "uint256"
+			}
+		],
+		"name": "setBpoolOpenB",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_maxInvB1",
+				"type": "uint256"
+			},
+			{
+				"name": "_maxInvB2",
+				"type": "uint256"
+			},
+			{
+				"name": "_maxInvB3",
+				"type": "uint256"
+			},
+			{
+				"name": "_teamMaxB",
+				"type": "uint256"
+			}
+		],
+		"name": "setBpoolSplitB",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_token",
+				"type": "address"
+			}
+		],
+		"name": "setBurnToken",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_times",
+				"type": "uint256"
+			}
+		],
+		"name": "setBurnTokenTimes",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_str",
+				"type": "uint256"
+			},
+			{
+				"name": "_step",
+				"type": "uint256"
+			},
+			{
+				"name": "_giveRateB",
+				"type": "uint256"
+			}
+		],
+		"name": "setBusLevel4Ether",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_fixRetQ",
+				"type": "uint256"
+			}
+		],
+		"name": "setFixRetQ",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_gdyB",
+				"type": "uint256"
+			},
+			{
+				"name": "_gstaticB",
+				"type": "uint256"
+			},
+			{
+				"name": "_gbpoolB",
+				"type": "uint256"
+			},
+			{
+				"name": "_gnodeB",
+				"type": "uint256"
+			}
+		],
+		"name": "setGper",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_limit10",
+				"type": "bool"
+			}
+		],
+		"name": "setLimit10",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_min",
+				"type": "uint256"
+			}
+		],
+		"name": "setMin",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			},
+			{
+				"name": "_bus",
+				"type": "uint256"
+			}
+		],
+		"name": "setNodeBus",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_eths",
+				"type": "uint256"
+			}
+		],
+		"name": "setOpenEths4Ether",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_eths1",
+				"type": "uint256"
+			},
+			{
+				"name": "times1_",
+				"type": "uint256"
+			},
+			{
+				"name": "_eths2",
+				"type": "uint256"
+			},
+			{
+				"name": "times2_",
+				"type": "uint256"
+			},
+			{
+				"name": "_eths3",
+				"type": "uint256"
+			},
+			{
+				"name": "times3_",
+				"type": "uint256"
+			}
+		],
+		"name": "setOut12",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "setRecomData",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_perior",
+				"type": "uint256"
+			}
+		],
+		"name": "setStcPerior4Min",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "onReceiveApproval",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_topRec",
+				"type": "address"
+			}
+		],
+		"name": "setTopRec",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "withdraw4Parter",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "activated_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "bpoolOpenB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "bpoolOpenSplitB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "burnToken_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "burnTokenTimes_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimal_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "fixRetQ_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gbpoolB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gdyB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getCurrentRoundInfo",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getExtData",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getGper",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getHisRoundInfo",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "getNodeData",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "bool"
+			},
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getOut12",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "getPlayerExtByAddress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "getPlayerInfoByAddress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getRecomCount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getRecommander",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getTimeLeft",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ggm_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "gmAdress_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gMin_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "gmRateB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gnodeB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gOpenEth_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gstaticB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "limit10_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "node_",
+		"outputs": [
+			{
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"name": "rate",
+				"type": "uint256"
+			},
+			{
+				"name": "isMount",
+				"type": "bool"
+			},
+			{
+				"name": "isCalBus",
+				"type": "bool"
+			},
+			{
+				"name": "bus",
+				"type": "uint256"
+			},
+			{
+				"name": "gen",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "nodeinc_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "nodeNextLevel_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "outs1_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "outs11_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "plyr_",
+		"outputs": [
+			{
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"name": "win",
+				"type": "uint256"
+			},
+			{
+				"name": "gen",
+				"type": "uint256"
+			},
+			{
+				"name": "dy",
+				"type": "uint256"
+			},
+			{
+				"name": "t",
+				"type": "uint256"
+			},
+			{
+				"name": "tdy",
+				"type": "uint256"
+			},
+			{
+				"name": "meth",
+				"type": "uint256"
+			},
+			{
+				"name": "lastFixResTime",
+				"type": "uint256"
+			},
+			{
+				"name": "fixResCount",
+				"type": "uint256"
+			},
+			{
+				"name": "incomeLimit",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "plyrRnds_",
+		"outputs": [
+			{
+				"name": "eth",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "recomB_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "recomData_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rID_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rndGap_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rndInit_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "round_",
+		"outputs": [
+			{
+				"name": "plyr1",
+				"type": "address"
+			},
+			{
+				"name": "inva1",
+				"type": "address"
+			},
+			{
+				"name": "inv1",
+				"type": "uint256"
+			},
+			{
+				"name": "inva2",
+				"type": "address"
+			},
+			{
+				"name": "inv2",
+				"type": "uint256"
+			},
+			{
+				"name": "inva3",
+				"type": "address"
+			},
+			{
+				"name": "inv3",
+				"type": "uint256"
+			},
+			{
+				"name": "end",
+				"type": "uint256"
+			},
+			{
+				"name": "ended",
+				"type": "bool"
+			},
+			{
+				"name": "strt",
+				"type": "uint256"
+			},
+			{
+				"name": "eth",
+				"type": "uint256"
+			},
+			{
+				"name": "pot",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "stcPerior_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tdestroy_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+var abitoken = [
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_spender",
+				"type": "address"
+			},
+			{
+				"name": "_val",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "activate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_min0",
+				"type": "uint256"
+			}
+		],
+		"name": "setMinWei",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "_val",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_decimal",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "_fundrate",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "_val",
+				"type": "uint256"
+			}
+		],
+		"name": "mint",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "burn",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"name": "_rateW",
+				"type": "uint256"
+			}
+		],
+		"name": "addFundAndRate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_recipient",
+				"type": "address"
+			}
+		],
+		"name": "getAuthBurn4Wis",
+		"outputs": [
+			{
+				"name": "_res",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "_fundAddressIndex",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_tokenAdmin",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_minWei",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_level0",
+				"type": "uint256"
+			},
+			{
+				"name": "_investEth0",
+				"type": "uint256"
+			},
+			{
+				"name": "_percentW0",
+				"type": "uint256"
+			}
+		],
+		"name": "setLevelData",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "burnFrom",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "_val",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_maxWei",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_inverst0",
+				"type": "uint256"
+			}
+		],
+		"name": "getExtPercent",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_recipient",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			},
+			{
+				"name": "_extraData",
+				"type": "bytes"
+			}
+		],
+		"name": "approveAndCall",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "_frozenAccount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "activated_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"name": "_spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "target",
+				"type": "address"
+			},
+			{
+				"name": "freeze",
+				"type": "bool"
+			}
+		],
+		"name": "freezeAccount",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_recipient",
+				"type": "address"
+			},
+			{
+				"name": "_bool",
+				"type": "bool"
+			}
+		],
+		"name": "setAuthBurn4Wis",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_max0",
+				"type": "uint256"
+			}
+		],
+		"name": "setMaxWei",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_sender",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "burnCall4Wis",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to0",
+				"type": "address"
+			},
+			{
+				"name": "_val",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenAdmin0",
+				"type": "address"
+			}
+		],
+		"name": "setTokenAdmin",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "_levelData",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to0",
+				"type": "address"
+			}
+		],
+		"name": "withdrawAll",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "OnBurn",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "target",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "frozen",
+				"type": "bool"
+			}
+		],
+		"name": "OnFrozenFunds",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "target",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "rate",
+				"type": "uint256"
+			}
+		],
+		"name": "OnAddFundsAccount",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "receiver",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "OnWithdraw",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	}
+];
+//var gcontract='';
+//var gcontract='0xe6f47c9c89f4f656a6130631a0d99d746acdd684';
+//var gcontract='0x7a844FEE999FfA0fd87E2B624508CD8CEAAE0e07';
+//var ticket = "0xa977815c033c803ee958fc5de1563e8a80078706";
+var gcontract='0x75c7e653e0fdb0abc1840c0d28f9fe7e12dd2a5d';
+var ticket = "0x117353f396af7ef5e4584bc28e95a656497cb671";
+//var gcontract='0x83164D2FD9503DE286a60235eF4A87B2566BF584';
+
+$(document).ready(function(){
+
+	var language_en = ["Round", "", "OR left for the award", "Prize pool", "Minimum investment", 
+	"Daily income", "Burned token", "Burn times", "quickly participate in 1 ETH", "Participation Now", 
+	"Invite Friends", "My Vaults", "or", "Copy contract address", "My wallet address", 
+	"My wallet balance", "My current round of participation:", "My direct push number", "My inviter", "Show recommended QR code ", 
+	"Click to copy my referral link or scan recommended QR code", "My current round of participation total", "Total", "Ordinary income", "Dynamic income", 
+	"Winning gain", "Re-investment", "Withdraw to my wallet", "Prize pool data", "My statistics", 
+	"Other data", "investment amount data", "first investment amount", "second investment amount", "third investment amount",
+	"First player for invest", "Second player for invest", "Third player for invest", "The prize pool", "The prize pool",
+	"Personal statistics", "There is still left in the next earnings", "Leaving", "There is still left in the market", "My total participation amount",
+	"My current round of participation", "My static income", "My dynamic income", "Other data", "Extra income",
+	"Accumulated burning", "last round of data", "first investment amount", "second investment amount", "third investment amount",
+	"First player for invest", "Second player for invest", "Third player for invest", "Reg recommender", "My address",
+	"Recommender", "Register", "times", "Join Now", "My remaining tickets", 
+	"Knight", "3 times earnings / daily", "Count", "4 times earnings / daily", "King",
+	"5 times earnings / daily", "Required tickets = investment amount X rate"];
+	
+	var language_ko = ["라운드",  "", "또는 상금을 남겨 둡니다", "상금 수영장", "최소 투자",
+	"일일 수입", "연소 토큰", "연소 시간", "빠르게 1 ETH에 참여", "지금 참여",
+	"친구 초대", "내 금고", "또는", "계약서 주소 복사", "내 지갑 주소",
+	"내 지갑 균형", "현재 참여 라운드 :", "내 직접 방문 번호", "내 초대자", "권장 QR 코드 표시",
+	"추천 링크를 복사하거나 권장 QR 코드를 스캔하려면 클릭하십시오", "현재 총 참여 라운드", "합계", "경상 소득", "다이나믹 수입",
+	"승리 이득", "재투자", "내 지갑에 철수", "상금 풀 데이터", "내 통계",
+	"기타 데이터", "투자 금액 데이터", "제 1 투자 금액", "제 2 투자 금액", "제 3 투자 금액",
+	"첫 번째 투자자", "두 번째 투자자", "세 번째 투자자", "상금 풀", "상금 풀",
+	"개인 통계", "아직도 다음 수입에 남아있다", "떠난다", "아직 시장에 남아있다", "내 총 참여 금액",
+	"현재 나의 참여 라운드", "내 정적 소득", "내 역동적 인 소득", "기타 데이터", "추가 수입",
+	"누적 된", "마지막 라운드 데이터", "첫 번째 투자 금액", "두 번째 투자 금액", "세 번째 투자 금액",
+	"첫 번째 투자자", "두 번째 투자자", "세 번째 투자자", "추천인 등록", "내 주소",
+	"추천 사람 주소", "등록", "번", "", "내 남은 티켓", 
+	"기사", "수입 3 회 / 일", "집계", "수입 4 회 / 일일", "왕",
+	"일일 수입 5 배", "필수 티켓 = 투자 금액 X 비율"];
+	
+	var language_ru = ["Раунд", "", "ИЛИ осталось для награды", "Призовой фонд", "Минимальные вложения",
+	"Ежедневный доход", "Сожженный токен", "Время записи", "Быстро участвуйте в 1 ETH", "Участие сейчас",
+	"Пригласить друзей", "Мои хранилища", "или", "Копировать адрес договора", "Адрес моего кошелька",
+	"Баланс моего кошелька", "Мой текущий раунд участия:", "Мой прямой push-номер", "Мой приглашающий", "Показать рекомендуемый QR-код",
+	"Нажмите, чтобы скопировать мою реферальную ссылку или отсканировать рекомендованный QR-код", "Мой текущий раунд участия", "Итого", "Обычный доход", "Динамический доход",
+	"Выигрыш", "Реинвестирование", "Вывод средств на мой кошелек", "Призовой фонд", "Моя статистика",
+	"Прочие данные", "данные о сумме инвестиций", "первая сумма инвестиций", "вторая сумма инвестиций", "третья сумма инвестиций",
+	"первый", "второй", "третий", "Призовой фонд", "Призовой фонд",
+	"Личная статистика", "Еще осталось в следующем заработке", "Уход", "Еще осталось на рынке", "Общая сумма моего участия",
+	"Мой текущий раунд участия", "Мой статический доход", "Мой динамический доход", "Другие данные", "Дополнительный доход",
+	"Накопленное горение", "Последний раунд данных", "Первая сумма инвестиций", "Вторая сумма инвестиций", "Третья сумма инвестиций",
+	"первый", "второй", "третий", "рекомендателя", "Мой адрес",
+	"Рекомендованный адрес лица", "Регистрация", "раза", "", "Мои оставшиеся билеты", 
+	"Рыцарь", "3 раза в день / ежедневно", "Граф", "4 раза в день / ежедневно", "Король",
+	"5 раз в день / заработка", "Обязательные билеты = сумма инвестиций X ставка"];
+	
+	var language_zh = [
+	"第", "轮", "或 离开奖还剩", "奖池", "最小投资额", 
+	"收益率(天)", "燃烧的总门票数", "燃烧倍率", "快速投资1 ETH", "现在参与", 
+	"邀请朋友", "我的存款", "或", "复制合约地址直接转账", "我的钱包地址", 
+	"我的钱包余额", "我的本轮累计参与：", "我的直推数", "我的邀请人", "展示推荐二维码", "点击复制我的推荐链接或扫描推荐二维码", "本轮参与总额", "总额", "普通收益", "动态收益",
+	"中奖收益", "复投", "提现到我的钱包", "奖池数据", "我的统计", 
+	"其它数据", "投资额数据", "第1投资额", "第2投资额", "第3投资额", 
+	"投资第1玩家", "投资第2玩家", "投资第3玩家", "奖池累计", "奖池累计额", 
+	"个人统计", "离下次收益还剩", "离", "倍出局还剩", "我的总参与额", 
+	"我的本轮参与额", "我的总静态收益", "我的总动态收益", "其它数据", "额外收益", 
+	"累计燃烧", "上一轮数据", "第1投资额", "第2投资额", "第3投资额", 
+	"投资第1玩家", "投资第2玩家", "投资第3玩家", "注册推荐人", "我的地址", 
+	"推荐人", "注册", "倍", "立即参与", "我的剩余门票数",
+	"骑士", "3倍收益 / 每天", "伯爵", "4倍收益 / 每天", "国王", 
+	"5倍收益 / 每天", "需要的门票 = 投资额 X 倍率"];
+	
+	var tipl_en = ["This is a test, please use the ropsten test network!", "Please use the official Ethereum main network!", "For Chrome, Firefox please download <a style='color:#fcd21c;font-size:18px;' href=' Https://metamask.io/'>metamask</a> or mobile phone download <a style='color:#fcd21c;font-size:18px;' href='https://trustwalletapp.com/'>trustwallet</a> !", "Please login to Metamask or trustwallet!", "Please select the correct Ethernet network!", "Successful copy:", "Please enter the correct referrer", "The minimum investment amount is 0.01!", "Your total deposit must be greater than 0.01 before re-investment!", "The amount of your re-investment must be less than your total deposit amount!",
+	"Your total deposit must be greater than 0.01 before it can be withdrawn!"];
+	
+	var tipl_ru = ["Это тест, используйте тестовую сеть ropsten!", "Пожалуйста, используйте официальную основную сеть Ethereum!", "Для Chrome, Firefox, пожалуйста, скачайте <a style = 'color: #fcd21c; font-size: 18px;' href = https://metamask.io/'>metamask </a> или загрузите с мобильного телефона <a style='color:#fcd21c;font-size:18px;'href='https://trustwalletapp.com/'> trustwallet </a>! "," Пожалуйста, войдите в Metamask или trustwallet! "," Пожалуйста, выберите правильную сеть Ethernet! "," Копирование выполнено: ", "Пожалуйста, введите правильный реферер", "Минимальная сумма вложения составляет 0,01!", "Ваш общий депозит должен быть больше 0.01 до реинвестирования!", "Сумма вашего реинвестиции должна быть меньше, чем ваша общая сумма вклада!",
+	"Ваш общий депозит должен быть больше 0,01, прежде чем его можно будет снять!"];
+	
+	var tipl_ko = ["이 테스트는 ropsten 테스트 네트워크를 사용하십시오!", "공식 Ethereum 메인 네트워크를 사용하십시오!", 
+	"Chrome의 경우 Firefox에서 <a style='color:#fcd21c;font-size:18px;' href='https://metamask.io/'>metamask</a> 또는 휴대 전화 다운로드 <a style='color:#fcd21c;font-size:18px;' href='https://trustwalletapp.com/'>trustwallet</a>을 다운로드하십시오!",
+	"Metamask 또는 trustwallet에 로그인하십시오! ","올바른 이더넷 네트워크를 선택하십시오! ",
+	"복사 성공 : ", "올바른 참조자를 입력하십시오", "최소 투자 금액은 0.01입니다!", "재투자하기 전에 총 보증금이 0.01보다 커야합니다!", "재투자 금액은 총 보증금보다 적어야합니다!",
+	"철수하기 전에 총 보증금이 0.01보다 커야합니다!"];
+	
+	var tipl_zh = ["这是一个测试，请使用ropsten测试网！", "请使用正式以太坊主网！", 
+	"对于Chrome、Firefox请下载 <a style='color:#fcd21c;font-size:18px;' href='https://metamask.io/'>metamask</a> 或 手机端下载 <a style='color:#fcd21c;font-size:18px;' href='https://trustwalletapp.com/'>trustwallet</a> ！", 
+	"请先登录 Metamask 或 trustwallet！", "请选择正确的以太网络！", 
+	"复制成功：", "请输入正确的推荐人", "最小投资额为 0.01！", "你的存款总额必须大于0.01才可复投！", "你复投的金额必须小于你的存款总额！",
+	"你的存款总额必须大于0.01才可提现！"];
+	
+	var language = store.get('language');
+	if(!language){
+		language = "language_en";
+	}
+	
+	$(".language_en").click(function(){
+		store.set('language', 'language_en');
+		
+		window.location.reload();
+		
+	});
+	$(".language_zh").click(function(){
+		store.set('language', 'language_zh');
+		
+		window.location.reload();
+	});
+	
+	$(".language_ko").click(function(){
+		store.set('language', 'language_ko');
+		window.location.reload();
+	});
+	
+	$(".language_ru").click(function(){
+		store.set('language', 'language_ru');
+		window.location.reload();
+	});
+	
+	var lan_arr;
+	var tipl;
+	if(language == "language_zh"){
+		lan_arr = language_zh;
+		tipl = tipl_zh;
+		$(".language_").html($(".language_zh").html());
+	}else if(language == "language_ko"){
+		lan_arr = language_ko;
+		tipl = tipl_ko;
+		$(".language_").html($(".language_ko").html());
+	}else if(language == "language_ru"){
+		lan_arr = language_ru;
+		tipl = tipl_ru;
+		$(".language_").html($(".language_ru").html());
+	}else{
+		lan_arr = language_en;
+		tipl = tipl_en;
+		$(".language_").html($(".language_en").html());
+	}
+	for(var i=0;i<lan_arr.length;i++){
+		$(".lan-" + (i+1)).html(lan_arr[i]);
+	}
+		
+	
+	
+	var BN = BigNumber.clone();
+	$(".zone01 .ant-tabs-tab").click(function(index){
+		var index = $(this).index();
+		$(".zone01 .ant-tabs-tab-active").attr("aria-selected", "false");
+		$(".zone01 .ant-tabs-tab-active").removeClass("ant-tabs-tab-active");
+		$(this).addClass("ant-tabs-tab-active");
+		$(this).attr("aria-selected", "true");
+		
+		$(".zone01 .ant-tabs-tabpane-active").parent().css("margin-left", index*-100 + "%");
+		$(".zone01 .ant-tabs-tabpane-active").attr("aria-hidden", "true");
+		$(".zone01 .ant-tabs-tabpane-active").removeClass("ant-tabs-tabpane-active");
+		
+		$($(".zone01 .ant-tabs-tabpane")[index]).attr("aria-hidden", "false");
+		$($(".zone01 .ant-tabs-tabpane")[index]).removeClass("ant-tabs-tabpane-inactive");
+		$($(".zone01 .ant-tabs-tabpane")[index]).addClass("ant-tabs-tabpane-active");
+	});
+		
+	$(".zone02 .ant-tabs-tab").click(function(index){
+		var index = $(this).index();
+		$(".zone02 .ant-tabs-tab-active").attr("aria-selected", "false");
+		$(".zone02 .ant-tabs-tab-active").removeClass("ant-tabs-tab-active");
+		$(this).addClass("ant-tabs-tab-active");
+		$(this).attr("aria-selected", "true");
+		
+		$(".zone02 .ant-tabs-tabpane-active").parent().css("margin-left", index*-100 + "%");
+		$(".zone02 .ant-tabs-tabpane-active").attr("aria-hidden", "true");
+		$(".zone02 .ant-tabs-tabpane-active").removeClass("ant-tabs-tabpane-active");
+		
+		$($(".zone02 .ant-tabs-tabpane")[index]).attr("aria-hidden", "false");
+		$($(".zone02 .ant-tabs-tabpane")[index]).removeClass("ant-tabs-tabpane-inactive");
+		$($(".zone02 .ant-tabs-tabpane")[index]).addClass("ant-tabs-tabpane-active");
+	});
+	
+	var iconins;
+	var itickets;
+	var gnetId = 3;
+	
+	var netCheck = false;
+	var symbol;
+	var cweb3 = (typeof web3 !== 'undefined');
+	var web3js;
+	var checkNet = function(){
+		
+		if (typeof web3 !== 'undefined') {
+		  web3js = new Web3(web3.currentProvider);
+		  var icontract = web3.eth.contract(abi);
+		  var iticketcontract = web3.eth.contract(abitoken);
+	      iconins = icontract.at(gcontract);
+		  itickets = iticketcontract.at(ticket);
+		  web3.version.getNetwork((err, netId) => {
+				if(netId != gnetId){
+					if(gnetId == 3)
+						alertify.error(tipl[0]);
+					if(gnetId == 1)
+						alertify.error(tipl[1]);
+				}else{
+					netCheck = true;
+					checkLogin();
+				}
+			  /*switch (netId) {
+			    case "1":
+			    	
+			      checkLogin();
+			      console.log('This is mainnet');
+			      break
+			    case "2":
+			    	
+			        console.log('This is the deprecated Morden test network.')
+			        break
+			    case "3":
+			    	checkLogin();
+			        console.log('This is the ropsten test network.')
+			        break
+			    default:
+			      	console.log('unkonwn.');
+			  }*/
+			}); 
+		} else {
+		  //console.log('No web3? You should consider trying MetaMask Or TrustWallet!');
+		  alertify.error(tipl[2]);
+		  return;
+		  
+		}
+	};
+	checkNet();
+	var defaultAccount = "";
+	var checkLogin = function(){
+		
+		var accountInterval = setInterval(function() {
+			web3js.eth.getAccounts(function(err, acc){
+				if(err != null){
+	              	console.log('error');
+	              	return;
+	          	}
+				if(acc.length==0 && defaultAccount !=""){
+					window.location.reload();
+		          	return;
+		        }
+				
+				if(acc.length==0){
+		          	//console.log('please login metamask or trustwallet.');
+		          	return;
+		        }
+				if (acc[0] != defaultAccount) {
+					defaultAccount = acc[0];
+					//
+					window.location.reload();
+				    console.log("account change, start bat updateData!");
+				  }
+			});
+		}, 1000);
+		
+		web3js.eth.getAccounts(function(err,accounts){
+			if(err){
+				alertify.error(err);
+              	return;
+          	}
+            if(accounts.length==0){
+          	  
+          	  alertify.error(tipl[3]);
+          	  return;
+            }
+            defaultAccount = accounts[0];
+			if(defaultAccount != ""){
+	    	  
+	    	  iconins.getPlayerInfoByAddress.call(defaultAccount, call3);
+	    	  iconins.getRecommander.call({from:defaultAccount}, callq1);
+	    	  iconins.getRecomCount.call({from:defaultAccount}, callq2);
+	    	  var balance = web3.eth.getBalance(defaultAccount, function(err, result){
+				 $(".wallet_address_input").val(defaultAccount);
+	    		 $(".wallet_address").html(defaultAccount.substr(0, 8) + "..." + defaultAccount.substr(-8));
+	    		 $(".wallet_amt").html(BN(web3.fromWei(result.toFixed(), 'ether')).toFixed(8, 1));
+				 
+	    	  });
+			  itickets.symbol.call(function(err, result1){
+				if(!err){
+					itickets.balanceOf.call(defaultAccount, function(err, result2){
+						
+						$("#tol_s8").html(web3.fromWei(result2.toFixed(), 'ether') + " " + result1);
+					});
+				}
+				
+			  });
+	    	  
+		    }
+              
+	   });
+	}
+    
+	var update1 = function(){
+		if(defaultAccount != "" && iconins){
+    	  
+    	  iconins.getPlayerInfoByAddress.call(defaultAccount, call3);
+    	  iconins.getRecommander.call({from:defaultAccount}, callq1);
+    	  iconins.getRecomCount.call({from:defaultAccount}, callq2);
+		  
+		  iconins.getPlayerExtByAddress.call(defaultAccount, callExt);
+    	  var balance = web3.eth.getBalance(defaultAccount, function(err, result){
+			  $(".wallet_address_input").val(defaultAccount);
+    		  $(".wallet_address").html(defaultAccount.substr(0, 8) + "..." + defaultAccount.substr(-8));
+    		  $(".wallet_amt").html(BN(web3.fromWei(result.toFixed(), 'ether')).toFixed(8, 1));
+			  
+			  itickets.symbol.call(function(err, result1){
+				if(!err){
+					itickets.balanceOf.call(defaultAccount, function(err, result2){
+						
+						$("#tol_s8").html(web3.fromWei(result2.toFixed(), 'ether') + " " + result1);
+					});
+				}
+				
+			  });
+    	  });
+    	
+		}
+	}
+	
+	var update2 = function(){
+		if(iconins){
+			
+	 	  	iconins.getCurrentRoundInfo.call(call2);
+			
+		}
+		
+	}
+	
+	var update3 = function(){
+		if(iconins){
+			
+	 	  	iconins.getTimeLeft.call(callLeftTime);
+	 	  	
+		}
+	}
+	
+	setInterval(function() {
+		update1();
+		update2();
+	}, 5000);
+	
+	setInterval(function() {
+		update3();
+	}, 20000);
+	
+	
+	var call2 = function(err, result){
+		if(!err)
+  		  fillBgpool(result);
+	};
+	var call3 = function(err, result){
+		if(!err)
+  		   fillmygen(result);
+	};
+	
+	var callExt = function(err, result){
+		if(!err)
+			fillmygen2(result);
+	};
+	
+	var callq1 = function(err, result){
+		if(result == "0x0000000000000000000000000000000000000000"){
+			$(".my-inviter").html("/");
+		}else
+			$(".my-inviter").html(result.length > 15 ? result.substring(0,10) + "..." + result.substr(-5) : result);
+	};
+	
+	var callq2 = function(err, result){
+		
+		$(".my-recomand-count").html(result.toFixed());
+	};
+	
+	var callLeftTime = function(err, result){
+		refreshBigTimer(result.toFixed());
+	};
+
+	var t1;
+	var t2;
+	var refreshBigTimer = function(senconds){
+		
+		if(senconds > 0){
+			
+			if(t1)t1.clear();
+			t1 = new Tick(senconds, ".b-dtime");
+			t1.timer(t1);
+		}
+	};
+	
+	var refreshIncomeTimer = function(senconds){
+		
+		if(senconds > 0){
+			
+			if(t2)t2.clear();
+			t2 = new Tick(senconds, "#tol_s1");
+			t2.timer(t2);
+		}
+	};
+  
+  
+  
+  var callPreRoundInfo = function(err, result){
+	if(!err){
+		var a = [];
+		a.push(result[0].toFixed());
+		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
+		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		
+		a.push(web3.fromWei(result[3].toFixed(), 'ether'));
+		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		
+		a.push(result[6].length > 23 ? result[6].substring(0,18) + "..." + result[6].substr(-5) : result[6]);
+		a.push(result[7].length > 23 ? result[7].substring(0,18) + "..." + result[7].substr(-5) : result[7]);
+		a.push(result[8].length > 23 ? result[8].substring(0,18) + "..." + result[8].substr(-5) : result[8]);
+		
+		$("#his_p1").html(BN(a[3]).toFixed(8, 1) + " ETH");
+		$("#his_p2").html(BN(a[4]).toFixed(8, 1) + " ETH");
+		$("#his_p3").html(BN(a[5]).toFixed(8, 1) + " ETH");
+		$("#his_p4").html(a[6]);
+		$("#his_p5").html(a[7]);
+		$("#his_p6").html(a[8]);
+		
+		
+		
+	}
+  }
+  
+  var callExtData = function(err, result){
+	if(!err){
+		var a = [];
+		a.push(web3.fromWei(result[0].toFixed(), 'ether'));
+		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
+		a.push(result[2].toFixed());
+		a.push(result[3].toFixed());
+		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		
+		$(".g_remain_qeth").html(BN(a[1]).toFixed(2, 1) + " ETH");
+		$(".set_burn").html(BN(a[4]).toFixed(3, 1) + " " + symbol);
+		$(".set_q").html(a[3]);
+		$(".set_min").html(BN(a[0]).toFixed(2, 1) + " ETH");
+		
+		$("#burn_b1").html(BN(a[4]).toFixed(3, 1) + " " + symbol);
+		$(".set_burn_times").html(a[2]);
+	}
+  }
+	var fillBgpool = function(result){
+		var a = [];
+		a.push(result[0].toFixed());
+		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
+		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		
+		a.push(web3.fromWei(result[3].toFixed(), 'ether'));
+		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		
+		a.push(result[6].length > 23 ? result[6].substring(0,18) + "..." + result[6].substr(-5) : result[6]);
+		a.push(result[7].length > 23 ? result[7].substring(0,18) + "..." + result[7].substr(-5) : result[7]);
+		a.push(result[8].length > 23 ? result[8].substring(0,18) + "..." + result[8].substr(-5) : result[8]);
+		
+		$(".b-loop").html(a[0]);
+		$(".b-pot").html(BN(a[2]).toFixed(2, 1));
+		
+		$("#b_p1").html(BN(a[3]).toFixed(8, 1) + " ETH");
+		$("#b_p2").html(BN(a[4]).toFixed(8, 1) + " ETH");
+		$("#b_p3").html(BN(a[5]).toFixed(8, 1) + " ETH");
+		$("#b_p4").html(a[6]);
+		$("#b_p5").html(a[7]);
+		$("#b_p6").html(a[8]);
+		$("#b_p7").html(BN(a[1]).toFixed(8, 1) + " ETH");
+		
+		
+	};
+	
+	var fillBank = function(result){
+		
+	};
+	
+	var fillmygen = function(result){
+		
+		var a = [];
+		// 0
+		a.push(result[0]);
+		//gen 1
+		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		// 2
+		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
+		// 3
+		a.push(web3.fromWei(result[3].toFixed(), 'ether'));
+		
+		// 4
+		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		
+		// 5
+		a.push(web3.fromWei(result[7].toFixed(), 'ether'));
+		
+		// 6
+		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		
+		// 7
+		a.push(web3.fromWei(result[6].toFixed(), 'ether'));
+		
+		// 8
+		a.push(web3.fromWei(result[8].toFixed(), 'ether'));
+		
+		$(".cur_loop_join_amt").html(BN(a[3]).toFixed(8, 1) + " ETH");
+		$("#cur_loop_join_amt").html(BN(a[3]).toFixed(8, 1) + " ETH");
+		$("#tol_s5").html(BN(a[3]).toFixed(8, 1) + " ETH");
+		
+		$("#t_join_amt").html(BN(a[4]).toFixed(8, 1) + " ETH");
+		$("#tol_s4").html(BN(a[4]).toFixed(8, 1) + " ETH");
+		
+		$("#t_gen_join_amt").html(BN(a[5]).toFixed(8, 1) + " ETH");
+		$("#tol_s6").html(BN(a[5]).toFixed(8, 1) + " ETH");
+		
+		$("#t_dy_join_amt").html(BN(a[8]).toFixed(8, 1) + " ETH");
+		$("#tol_s7").html(BN(a[8]).toFixed(8, 1) + " ETH");
+		
+		$(".valut_gen_win").html(BN(BN(a[1]).plus(BN(a[2])).plus(BN(a[6])).toFixed()).toFixed(8, 1));
+		$(".reethinput").val(BN(BN(a[1]).plus(BN(a[2])).plus(BN(a[6])).toFixed()).toFixed(2, 1));
+		$(".valut_gen").html(BN(a[1]).toFixed(8, 1));
+		$(".valut_win").html(BN(a[2]).toFixed(8, 1));
+		$(".valut_dy").html(BN(a[6]).toFixed(8, 1));
+		$("#parter_p1").html(BN(a[7]).toFixed(8, 1) + " ETH");
+	};
+	
+	var fillmygen2 = function(result){
+		
+		var a = [];
+		// 0
+		a.push(result[0].toFixed());
+		a.push(result[1].toFixed());
+		//gen 1
+		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		
+		refreshIncomeTimer(a[0]);
+		//$("#tol_s1").html(a[0]);
+		$("#tol_s2").html(BN(a[1]).div(10).toFixed(1, 1));
+		$("#tol_s3").html(BN(a[2]).toFixed(8, 1) + " ETH");
+		
+	};
+	
+	/*$(".s-open-btn").click(function(){
+	
+		if(!checkAll()){return;}
+		if($(".s-pot").html() < 0.1){
+			alertify.error("min >= 0.1");
+			return;
+		}
+		iconins.pool24Open({from: defaultAccount}, function(err, result){
+			if(err){
+				
+				alertify.error(err);
+			}else{
+				update3();
+			}
+		});
+	});*/
+	
+	var getRecomander = function() {
+        var reg = new RegExp("(^|&)r=([^&]*)(&|$)"); 
+        var r = window.location.search.substr(1).match(reg); 
+        if (r != null) return unescape(r[2]); 
+        return null; 
+    }
+	
+	var recommander = getRecomander();
+	$(".quick-join").click(function(){
+		if(!checkAll()){return;}
+		
+		var etherValue = web3.toWei(1, 'ether');
+		if(recommander){
+			iconins.buy(recommander, {from: defaultAccount, value: etherValue}, function(err, result){
+				if(err){
+					
+					alertify.error(err);
+				}else{
+					update3();
+				}
+					
+			});
+		}else{
+			iconins.buyT({from: defaultAccount, value: etherValue}, function(err, result){
+				if(err){
+					alertify.error(err);
+				}else{
+					update3();
+				}
+			});
+		}
+	});
+	
+	$(".ethinput").click(function(){
+		event.stopPropagation();
+	});
+	
+	$(".buywitheth").click(function(){
+		//check ticket is enough？
+		if(!checkAll()){return;}
+		
+		if($(".ethinput").val() < 0.01){
+			alertify.error(tipl[7]);
+			return;
+		}
+		
+		/*itickets.balanceOf.call(defaultAccount, function(err, result){
+			//symbol = result;
+			var rr = web3.fromWei(result.toFixed(), 'ether');
+			if(rr < $(".ethinput").val()*)
+		});*/
+		
+		var etherValue = web3.toWei($(".ethinput").val(), 'ether');
+		
+		if(recommander){
+			//console.log("recommander: " + recommander);
+			iconins.buy(recommander, {from: defaultAccount, value: etherValue}, function(err, result){
+				if(err){
+					alertify.error(err);
+				}else{
+					update3();
+				}
+			});
+		}else{
+			iconins.buyT({from: defaultAccount, value: etherValue}, function(err, result){
+				if(err){
+					alertify.error(err);
+				}else{
+					update3();
+				}
+			});
+		}
+	});
+	
+	
+	$(".my-reload-btn").click(function(){
+		
+		if(!checkAll()){return;}
+		
+		//alert($(".valut_gen_win").html());
+		var vt = $(".valut_gen_win").html();
+		var val = $(".reethinput").val();
+		
+		if(val < 0.01){
+			alertify.error(tipl[8]);
+			return;
+		}
+		
+		if(val > vt){
+			alertify.error(tipl[9]);
+			return;
+		}
+		
+		var etherValue = web3.toWei(val, 'ether');
+		//console.log(etherValue + "=============================");
+		/*if(etherValue < 0.01){
+			alertify.error("your valut amt < 0.01！");
+			return;
+		}*/
+		
+		var r = "0x0000000000000000000000000000000000000000";
+		r = recommander ? recommander : r;
+		//console.log("r: " + r);
+		iconins.reLoad(r, etherValue, function(err, result){
+			if(err){
+				alertify.error(err);
+			}else{
+				update3();
+			}
+		});
+		
+	});
+	
+	//
+	$(".my-withdraw-btn").click(function(){
+		if(!checkAll()){return;}
+		
+		if($(".valut_gen_win").html() < 0.01){
+			alertify.error(tipl[10]);
+			return;
+		}
+		//var etherValue = web3.toWei($(".valut_gen_win").html(), 'ether');
+		
+		/*if(!defaultAccount || defaultAccount == ""){
+			//if(!checkNet)
+			alertify.error("please login Metamask");
+			
+			return;
+		}*/
+		if(iconins){
+			iconins.withdraw(function(err, result){
+			
+			if(err){
+				alertify.error(err);
+			}
+			});
+		}
+		
+	});
+	
+	$("#reg_recomander").click(function(){
+		if(!checkAll()){return;}
+		
+		var recomander = $("#input_recomander").val();
+		if(!recomander || recomander == ""){
+			
+			alertify.error(tipl[6]);
+			return;
+		}
+		
+		/*if(!defaultAccount || defaultAccount == ""){
+			//if(!checkNet)
+			alertify.error("please login Metamask");
+			
+			return;
+		}*/
+		if(iconins){
+			iconins.pubreg(recomander, function(err, result){
+			if(err){
+				alertify.error(err);
+			}
+			});
+		}
+		
+	});
+	
+	$(".my-recomand-link-btn").click(function(event){
+	
+		if(!checkAll()){return;}
+		var url = location.href;
+		if(url.indexOf("?") != -1){
+			url = url.split("?")[0];
+		}
+		var g = defaultAccount;
+		if(!g || g == ""){
+			alertify.error("wallet address is null！");
+			return;
+		}
+		console.log(url + "?r=" + g);
+		
+		function handler(event) {
+			event.clipboardData.setData('text/plain', url + "?r=" + g);
+			document.removeEventListener('copy', handler, true);
+			event.preventDefault();
+			
+			alertify.success(tipl[5] + url + "?r=" + g);
+		}
+		document.addEventListener('copy', handler, true);
+		document.execCommand('copy');
+	});
+	
+	$(".copy-contract-addr").click(function(event){
+		
+		function handler(event) {
+			event.clipboardData.setData('text/plain', gcontract);
+			document.removeEventListener('copy', handler, true);
+			event.preventDefault();
+			
+			alertify.success(tipl[5] + gcontract);
+		}
+		document.addEventListener('copy', handler, true);
+		document.execCommand('copy');
+	});
+	
+	$(".display_qrcode").click(function(){
+		if(!checkAll()){return;}
+		var url = location.href;
+		if(url.indexOf("?") != -1){
+			url = url.split("?")[0];
+		}
+		var g = $(".wallet_address").html();
+		if(!g || g == ""){
+			alertify.error("please login Metamask");
+			return;
+		}
+		$('.qrcode').html("");
+		$('.qrcode').qrcode({width: 106,height: 106,text: url + "?r=" + g});
+	});
+	
+	 $('.teamselector').click(function() {
+            $('.teamselector').find('.teamsave').removeClass('Check_Team');
+            $(this).find('.teamsave').addClass('Check_Team');
+        });
+    
+	
+	function checkAll(){
+		if(!cweb3){
+			noWeb3();
+			return false;
+		}
+		if(!netCheck){
+			errNet();
+			return false;
+		}
+		if(!defaultAccount || defaultAccount == ""){
+			alertify.error(tipl[3]);
+			return;
+		}
+		return true;
+	}
+	
+	function noWeb3(){
+		 alertify.error(tipl[2]);
+	}
+	
+	function errNet(){
+		alertify.error(tipl[4]);
+	}
+	
+	if(iconins){
+		
+		itickets.symbol.call(function(err, result){
+			//itickets.blanceOf.call(defaultAccount, function(err, result1){
+			//	console.log("amt, "+result1);
+			//});
+			if(!err){
+				iconins.getCurrentRoundInfo.call(call2);
+				iconins.getTimeLeft.call(callLeftTime);
+				iconins.getHisRoundInfo.call(callPreRoundInfo);
+				iconins.getExtData.call(callExtData);
+				symbol = result;
+				itickets.totalSupply.call(function(err, result){
+					console.log(BN(web3.fromWei(result.toFixed(), 'ether')).toFixed(8, 1));
+				});
+			}
+			
+			
+			
+			//console.log("symbol:"+result);
+		});
+		
+	}
+	/*var url = location.href;
+	if(url.indexOf("?") != -1)
+	{
+		url = url.split("?")[0];
+		
+	}
+	var g = $(".wallet_address").html();
+	if(!g || g == ""){
+		alertify.error("please login Metamask");
+		return;
+	}else{
+		console.log(url + "?r=" + g);
+		$('.qrcode').qrcode({width: 108,height: 108,text: "size doesn't matter"});
+	}*/
+	
+	});
+	
+</script>
+ </body>
+</html>
