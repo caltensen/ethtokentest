@@ -5018,7 +5018,7 @@ $(document).ready(function(){
 			$("#nodeDd").css("display", "block");
 			$("#person_node_1").html(a[4] + " ETH");
 			$("#person_node_2").html(a[6] + " ETH");
-			$("#person_node_3").html(BN(a[5]).div(10000).toFixed(2, 1) + "%");
+			$("#person_node_3").html(BN(a[5]).times(16).div(10000).toFixed(4, 1) + "%");
 		}
 	};
 	
