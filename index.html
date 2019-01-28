@@ -4929,7 +4929,7 @@ $(document).ready(function(){
 		a.push(result[8].length > 23 ? result[8].substring(0,18) + "..." + result[8].substr(-5) : result[8]);
 		
 		$(".b-loop").html(a[0]);
-		$(".b-pot").html(BN(a[2]).toFixed(2, 1));
+		$(".b-pot").html(BN(a[2]).toFixed(4, 1));
 		
 		$("#b_p1").html(BN(a[3]).toFixed(8, 1) + " ETH");
 		$("#b_p2").html(BN(a[4]).toFixed(8, 1) + " ETH");
