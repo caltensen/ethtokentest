@@ -7,7 +7,8 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="format-detection" content="email=no" />
 	<title>E11</title>
-	<link rel="shortcut icon" href="" />
+	
+	<link rel="shortcut icon" href="static/" />
 	<link href="static/style4eb7ea.css" rel="stylesheet" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -1954,7 +1955,6 @@ body {
 				
             </table>
 			
-			
             <table style="width:100%;">
             	
 				<tr><th class="lan-36">投资第1玩家：</th><td id="b_p4">--</td></tr>
@@ -1967,7 +1967,7 @@ body {
             <table style="width:100%;">
             	
 				
-            	<tr><th class="lan-40">奖池累计额：</th><td id="b_p7">--</td></tr>
+            	<tr><th class="lan-40">累计额：</th><td id="b_p7">--</td></tr>
             </table>
            
           </div>
@@ -1986,8 +1986,21 @@ body {
 				
 				<tr><th class="lan-47" id="">我的静态收益</th><td id="tol_s6">--</td></tr>
 				<tr><th class="lan-48" id="">我的动态收益</th><td id="tol_s7">--</td></tr>
-            	<tr><th class="lan-65" id="">我的剩余门票数</th><td id="tol_s8">--</td></tr>
+            	<!--<tr><th class="lan-65" id="">我的剩余门票数</th><td id="tol_s8">--</td></tr>-->
             </table>
+			
+			<div id="nodeDd" style="display:none;">
+				
+				
+				<table style="width:100%;">
+					<tr><th style="width:30%" class="">我的业绩</th><td id="person_node_1">--</td></tr>
+					
+					<tr><th style="width:30%" class="">我的进场提成</th><td id="person_node_3">--</td></tr>
+					<tr><th style="width:30%" class="">业绩最大节点</th><td id="person_node_4">--</td></tr>
+					<tr><th style="width:30%" class="">最大的业绩值</th><td id="person_node_5">--</td></tr>
+					
+				</table>
+			</div>
          	
 			</div>
          </div>
@@ -1997,8 +2010,10 @@ body {
 		   
 		    <div class="lan-49" style="border-bottom:3px groove #fcd21c;width:100%;padding:10px 0;color:white;font-weight:bolder;font-size:16px;">其它数据</div>
          	<table style="width:100%;">
-            	<tr><th style="width:30%" class="lan-50">额外收益</th><td id="parter_p1">--</td></tr>
-				<tr><th style="width:30%" class="lan-51">累计燃烧</th><td id="burn_b1">--</td></tr>
+            	<!--<tr><th style="width:30%" class="lan-50">额外收益</th><td id="parter_p1">--</td></tr>-->
+				
+				<tr><th style="width:30%" class="lan-51">累计燃烧门票</th><td id="burn_b1">--</td></tr>
+				<tr><th style="width:30%" class="">我的业绩收益</th><td id="person_node_2">--</td></tr>
             </table>
 			
 			<div class="lan-52" style="border-bottom:3px groove #fcd21c;width:100%;padding:10px 0;color:white;font-weight:bolder;font-size:16px;margin-top:20px;">上一轮数据</div>
@@ -2154,12 +2169,8 @@ var abi = [
 				"type": "address"
 			},
 			{
-				"name": "_rate",
+				"name": "_rateW",
 				"type": "uint256"
-			},
-			{
-				"name": "_top",
-				"type": "bool"
 			},
 			{
 				"name": "_cal",
@@ -2201,9 +2212,41 @@ var abi = [
 			{
 				"name": "_a0",
 				"type": "address"
+			},
+			{
+				"name": "_val",
+				"type": "uint256"
 			}
 		],
 		"name": "infoSos",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_a0",
+				"type": "address"
+			}
+		],
+		"name": "infoSosAll",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "kill",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -2342,6 +2385,28 @@ var abi = [
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "onReceiveApproval",
+		"type": "event"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -2421,7 +2486,11 @@ var abi = [
 				"type": "uint256"
 			},
 			{
-				"name": "_giveRateB",
+				"name": "_giveRateW",
+				"type": "uint256"
+			},
+			{
+				"name": "_nodeMaxEther",
 				"type": "uint256"
 			}
 		],
@@ -2466,20 +2535,6 @@ var abi = [
 			}
 		],
 		"name": "setGper",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_limit10",
-				"type": "bool"
-			}
-		],
-		"name": "setLimit10",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -2594,36 +2649,18 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "sender",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "value",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"name": "data",
-				"type": "bytes"
-			}
-		],
-		"name": "onReceiveApproval",
-		"type": "event"
+		"constant": false,
+		"inputs": [],
+		"name": "take",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
-				"name": "_topRec",
-				"type": "address"
-			}
-		],
-		"name": "setTopRec",
+		"inputs": [],
+		"name": "take4Parter",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -2644,33 +2681,15 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [],
-		"name": "withdraw",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
 	},
 	{
 		"inputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "constructor"
-	},
-	{
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "fallback"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "withdraw4Parter",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"constant": true,
@@ -2873,6 +2892,14 @@ var abi = [
 			{
 				"name": "",
 				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -2953,6 +2980,36 @@ var abi = [
 	},
 	{
 		"constant": true,
+		"inputs": [],
+		"name": "getNextRateLevel",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [
 			{
 				"name": "_addr",
@@ -2963,11 +3020,19 @@ var abi = [
 		"outputs": [
 			{
 				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
 				"type": "uint256"
 			},
 			{
 				"name": "",
-				"type": "bool"
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
 			},
 			{
 				"name": "",
@@ -3022,6 +3087,22 @@ var abi = [
 		],
 		"name": "getPlayerExtByAddress",
 		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "bool"
+			},
 			{
 				"name": "",
 				"type": "uint256"
@@ -3135,59 +3216,7 @@ var abi = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "ggm_",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "gmAdress_",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
 		"name": "gMin_",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "gmRateB_",
 		"outputs": [
 			{
 				"name": "",
@@ -3243,11 +3272,25 @@ var abi = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "limit10_",
+		"name": "mbus_",
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "mbusaddr_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -3283,16 +3326,8 @@ var abi = [
 				"type": "address"
 			},
 			{
-				"name": "rate",
+				"name": "rateW",
 				"type": "uint256"
-			},
-			{
-				"name": "isMount",
-				"type": "bool"
-			},
-			{
-				"name": "isCalBus",
-				"type": "bool"
 			},
 			{
 				"name": "bus",
@@ -3301,6 +3336,10 @@ var abi = [
 			{
 				"name": "gen",
 				"type": "uint256"
+			},
+			{
+				"name": "isCalBus",
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -3556,28 +3595,12 @@ var abi = [
 		"name": "round_",
 		"outputs": [
 			{
-				"name": "plyr1",
-				"type": "address"
-			},
-			{
-				"name": "inva1",
-				"type": "address"
-			},
-			{
 				"name": "inv1",
 				"type": "uint256"
 			},
 			{
-				"name": "inva2",
-				"type": "address"
-			},
-			{
 				"name": "inv2",
 				"type": "uint256"
-			},
-			{
-				"name": "inva3",
-				"type": "address"
 			},
 			{
 				"name": "inv3",
@@ -3586,10 +3609,6 @@ var abi = [
 			{
 				"name": "end",
 				"type": "uint256"
-			},
-			{
-				"name": "ended",
-				"type": "bool"
 			},
 			{
 				"name": "strt",
@@ -3602,6 +3621,26 @@ var abi = [
 			{
 				"name": "pot",
 				"type": "uint256"
+			},
+			{
+				"name": "plyr1",
+				"type": "address"
+			},
+			{
+				"name": "inva1",
+				"type": "address"
+			},
+			{
+				"name": "inva2",
+				"type": "address"
+			},
+			{
+				"name": "inva3",
+				"type": "address"
+			},
+			{
+				"name": "ended",
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -4426,14 +4465,9 @@ var abitoken = [
 		"type": "event"
 	}
 ];
-//var gcontract='';
-//var gcontract='0xe6f47c9c89f4f656a6130631a0d99d746acdd684';
-//var gcontract='0x7a844FEE999FfA0fd87E2B624508CD8CEAAE0e07';
-//var ticket = "0xa977815c033c803ee958fc5de1563e8a80078706";
-//var gcontract='0x1413c9f191db6763a1dc8ea039c5f527f9b2e1a5';
+
 var gcontract='0x15b1e73d844160454db27b29d3b026d6cfff94c3';
 var ticket = "0x117353f396af7ef5e4584bc28e95a656497cb671";
-//var gcontract='0x83164D2FD9503DE286a60235eF4A87B2566BF584';
 
 $(document).ready(function(){
 
@@ -4492,7 +4526,7 @@ $(document).ready(function(){
 	"我的钱包余额", "我的本轮累计参与：", "我的直推数", "我的邀请人", "展示推荐二维码", "点击复制我的推荐链接或扫描推荐二维码", "本轮参与总额", "总额", "普通收益", "动态收益",
 	"中奖收益", "复投", "提现到我的钱包", "奖池数据", "我的统计", 
 	"其它数据", "投资额数据", "第1投资额", "第2投资额", "第3投资额", 
-	"投资第1玩家", "投资第2玩家", "投资第3玩家", "奖池累计", "奖池累计额", 
+	"投资第1玩家", "投资第2玩家", "投资第3玩家", "当前轮累计数据", "当前轮累计额", 
 	"个人统计", "离下次收益还剩", "离", "倍出局还剩", "我的总参与额", 
 	"我的本轮参与额", "我的总静态收益", "我的总动态收益", "其它数据", "额外收益", 
 	"累计燃烧", "上一轮数据", "第1投资额", "第2投资额", "第3投资额", 
@@ -4857,12 +4891,19 @@ $(document).ready(function(){
   
   var callExtData = function(err, result){
 	if(!err){
+	console.log(result);
 		var a = [];
 		a.push(web3.fromWei(result[0].toFixed(), 'ether'));
 		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
 		a.push(result[2].toFixed());
 		a.push(result[3].toFixed());
 		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		
+		
+		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		a.push(result[6].length > 23 ? result[6].substring(0,18) + "..." + result[6].substr(-5) : result[6]);
+		$("#person_node_4").html(a[6]);
+		$("#person_node_5").html(a[5] + " ETH");
 		
 		$(".g_remain_qeth").html(BN(a[1]).toFixed(2, 1) + " ETH");
 		$(".set_burn").html(BN(a[4]).toFixed(3, 1) + " " + symbol);
@@ -4962,11 +5003,23 @@ $(document).ready(function(){
 		//gen 1
 		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
 		
+		a.push(result[3]);
+		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		a.push(result[5].toFixed());
+		a.push(web3.fromWei(result[6].toFixed(), 'ether'));
+		
 		refreshIncomeTimer(a[0]);
 		//$("#tol_s1").html(a[0]);
 		$("#tol_s2").html(BN(a[1]).div(10).toFixed(1, 1));
 		$("#tol_s3").html(BN(a[2]).toFixed(8, 1) + " ETH");
 		
+		console.log(a);
+		if(a[3]){
+			$("#nodeDd").css("display", "block");
+			$("#person_node_1").html(a[4] + " ETH");
+			$("#person_node_2").html(a[6] + " ETH");
+			$("#person_node_3").html(BN(a[5]).div(10000).toFixed(2, 1) + "%");
+		}
 	};
 	
 	/*$(".s-open-btn").click(function(){
@@ -5116,7 +5169,7 @@ $(document).ready(function(){
 			return;
 		}*/
 		if(iconins){
-			iconins.withdraw(function(err, result){
+			iconins.take(function(err, result){
 			
 			if(err){
 				alertify.error(err);
