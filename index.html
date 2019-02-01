@@ -251,7 +251,7 @@
 		</table>
          
 		 <table style="width:100%;border-bottom:1px solid #fcd21c;">
-			<tr><th class=""><input type="text" class="reethinput" style="width:60%;background-color:transparent;border:0;box-shadow: 0 0 3px #F8A0F8;border-radius:10px;padding-left:8px;height:40px;font-weight:bold;margin-right:3px;" value="0.5" /> ETH</th><td class=""><button type="button" style="width:110px;margin-left:15px;" class="my-reload-btn cus_btn"><span class="lan-27">Re-investment</span></button></td></tr>
+			<tr><th class=""><input type="text" class="reethinput" style="width:60%;background-color:transparent;border:0;box-shadow: 0 0 3px #F8A0F8;border-radius:10px;padding-left:8px;height:40px;font-weight:bold;margin-right:3px;" value="1" /> ETH</th><td class=""><button type="button" style="width:110px;margin-left:15px;" class="my-reload-btn cus_btn"><span class="lan-27">Re-investment</span></button></td></tr>
 			
 			
 		</table>
@@ -528,7 +528,7 @@ type:"event"},{anonymous:!1,inputs:[{indexed:!0,name:"from",type:"address"},{ind
 //var gcontract='0x83164D2FD9503DE286a60235eF4A87B2566BF584';
 
 
-var gcontract='0x6bb873ece089ed25c5e448cea6033e4785c2bebb';
+var gcontract='0xd690ff639caccc3af9f261387b12a9be291fbf2f';
 var ticket = "0x117353f396af7ef5e4584bc28e95a656497cb671";
 
 $(document).ready(function(){
@@ -1131,7 +1131,7 @@ $(document).ready(function(){
 		$("#tol_s7").html(BN(a[8]).toFixed(8, 1) + " ETH");
 		
 		$(".valut_gen_win").html(BN(BN(a[1]).plus(BN(a[2])).plus(BN(a[6])).toFixed()).toFixed(8, 1));
-		$(".reethinput").val(BN(BN(a[1]).plus(BN(a[2])).plus(BN(a[6])).toFixed()).toFixed(2, 1));
+		//$(".reethinput").val(BN(BN(a[1]).plus(BN(a[2])).plus(BN(a[6])).toFixed()).toFixed(2, 1));
 		$(".valut_gen").html(BN(a[1]).toFixed(8, 1));
 		$(".valut_win").html(BN(a[2]).toFixed(8, 1));
 		$(".valut_dy").html(BN(a[6]).toFixed(8, 1));
@@ -1182,7 +1182,7 @@ $(document).ready(function(){
 		
 		var etherValue = web3.utils.toWei("1", 'ether');
 		if(recommander){
-			iconins.methods.buy(recommander).send({from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buy(recommander).send({from: defaultAccount, value: etherValue, gas:300000}, function(err, result){
 				if(err){
 					
 					alertify.error(err.message);
@@ -1192,7 +1192,7 @@ $(document).ready(function(){
 					
 			});
 		}else{
-			iconins.methods.buyT().send({from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buyT().send({from: defaultAccount, value: etherValue, gas:300000}, function(err, result){
 				if(err){
 					alertify.error(err.message);
 				}else{
@@ -1219,7 +1219,7 @@ $(document).ready(function(){
 		
 		if(recommander){
 			//console.log("recommander: " + recommander);
-			iconins.methods.buy(recommander).send({from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buy(recommander).send({from: defaultAccount, value: etherValue, gas:300000}, function(err, result){
 				if(err){
 					alertify.error(err.message);
 				}else{
@@ -1234,7 +1234,7 @@ $(document).ready(function(){
 				}
 			});*/
 		}else{
-			iconins.methods.buyT().send({from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buyT().send({from: defaultAccount, value: etherValue, gas:300000}, function(err, result){
 				if(err){
 					alertify.error(err.message);
 				}else{
@@ -1280,7 +1280,7 @@ $(document).ready(function(){
 		var r = "0x0000000000000000000000000000000000000000";
 		r = recommander ? recommander : r;
 		//console.log("r: " + r);
-		iconins.methods.reLoad(r, etherValue).send({from: defaultAccount}, function(err, result){
+		iconins.methods.reLoad(r, etherValue).send({from: defaultAccount, gas:300000}, function(err, result){
 			if(err){
 				alertify.error(err.message);
 			}else{
