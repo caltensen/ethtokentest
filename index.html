@@ -528,8 +528,8 @@ type:"event"},{anonymous:!1,inputs:[{indexed:!0,name:"from",type:"address"},{ind
 //var gcontract='0x83164D2FD9503DE286a60235eF4A87B2566BF584';
 
 
-var gcontract='0xd690ff639caccc3af9f261387b12a9be291fbf2f';
-var ticket = "0x117353f396af7ef5e4584bc28e95a656497cb671";
+var gcontract='0x6dde69b25c58615f3d6fbf3e070a087c372b4417';
+var ticket = "0x42f72348a4b71fa7f6cAF49000fcf9aaE88C72Fe";
 
 $(document).ready(function(){
 
@@ -774,66 +774,68 @@ $(document).ready(function(){
 		$($(".zone02 .ant-tabs-tabpane")[index]).addClass("ant-tabs-tabpane-active");
 	});
 	
+	
 	var iconins;
 	var itickets;
-	var gnetId = 3;
+	var gnetId = 1;
 	
 	var netCheck = false;
 	var symbol;
-	var cweb3 = (typeof web3 !== 'undefined');
-	var web3js;
+	var web3;
+	//var cweb3 = (typeof web3 !== 'undefined');
+	//var web3js;
 	
-	
-	var checkNet = function(){
+	var checkNet = async function(){
+		  if (window.ethereum) {
+			web3 = window.web3 = new Web3(ethereum);
+			
+			try {
+			  //await ethereum.enable();
+			  handlerWeb3(window.web3);
+			  
+			} catch (error) {
+			}
+		  }
+		  // Legacy dapp browsers...
+		  else if (window.web3) {
+			web3 = window.web3 = new Web3(web3.currentProvider);
+			
+			handlerWeb3(window.web3);
+		  }
+			
+		  else {
+			alertify.error(tipl[2]);
+		  }
 		
-		if (typeof web3 !== 'undefined') {
-		  web3js = new Web3(web3.currentProvider);
-		  var icontract = web3.eth.contract(abi);
-		  var iticketcontract = web3.eth.contract(abitoken);
-	      iconins = icontract.at(gcontract);
-		  console.log(iconins);
-		  itickets = iticketcontract.at(ticket);
-		  web3.version.getNetwork((err, netId) => {
-				if(netId != gnetId){
-					if(gnetId == 3)
-						alertify.error(tipl[0]);
-					if(gnetId == 1)
-						alertify.error(tipl[1]);
+	}
+	
+	var handlerWeb3 = function(web3){
+		iconins = new web3.eth.Contract(abi, gcontract);
+		
+		console.log(iconins);
+		itickets = new web3.eth.Contract(abitoken, ticket);
+		
+		web3.eth.net.getId((err, netId) => {
+			//console.log(netId);
+			if(netId != gnetId){
+				if(gnetId == 3)
+					alertify.error(tipl[0]);
+				if(gnetId == 1)
+					alertify.error(tipl[1]);
 				}else{
 					netCheck = true;
 					checkLogin();
 				}
-			  /*switch (netId) {
-			    case "1":
-			    	
-			      checkLogin();
-			      console.log('This is mainnet');
-			      break
-			    case "2":
-			    	
-			        console.log('This is the deprecated Morden test network.')
-			        break
-			    case "3":
-			    	checkLogin();
-			        console.log('This is the ropsten test network.')
-			        break
-			    default:
-			      	console.log('unkonwn.');
-			  }*/
+				
 			}); 
-		} else {
-		  //console.log('No web3? You should consider trying MetaMask Or TrustWallet!');
-		  alertify.error(tipl[2]);
-		  return;
-		  
-		}
 	};
+	
 	checkNet();
 	var defaultAccount = "";
 	var checkLogin = function(){
 		
 		var accountInterval = setInterval(function() {
-			web3js.eth.getAccounts(function(err, acc){
+			web3.eth.getAccounts(function(err, acc){
 				if(err != null){
 	              	console.log('error');
 	              	return;
@@ -856,7 +858,7 @@ $(document).ready(function(){
 			});
 		}, 1000);
 		
-		web3js.eth.getAccounts(function(err,accounts){
+		web3.eth.getAccounts(function(err,accounts){
 			if(err){
 				alertify.error(err);
               	return;
@@ -866,23 +868,26 @@ $(document).ready(function(){
           	  alertify.error(tipl[3]);
           	  return;
             }
+			
             defaultAccount = accounts[0];
+			var option={from: defaultAccount };
+			
 			if(defaultAccount != ""){
 	    	  $(".wallet_address_input").val(defaultAccount);
-	    	  iconins.getPlayerInfoByAddress.call(defaultAccount, call3);
-	    	  iconins.getRecommander.call({from:defaultAccount}, callq1);
-	    	  iconins.getRecomCount.call({from:defaultAccount}, callq2);
+	    	  iconins.methods.getPlayerInfoByAddress(defaultAccount).call(option, call3);
+	    	  iconins.methods.getRecommander().call(option, callq1);
+	    	  iconins.methods.getRecomCount().call(option, callq2);
 	    	  var balance = web3.eth.getBalance(defaultAccount, function(err, result){
 				 
 	    		 $(".wallet_address").html(defaultAccount.substr(0, 8) + "..." + defaultAccount.substr(-8));
-	    		 $(".wallet_amt").html(BN(web3.fromWei(result.toFixed(), 'ether')).toFixed(8, 1));
+	    		 $(".wallet_amt").html(BN(web3.utils.fromWei(BN(result).toFixed(), 'ether')).toFixed(8, 1));
 				 
 	    	  });
-			  itickets.symbol.call(function(err, result1){
+			  itickets.methods.symbol().call(function(err, result1){
 				if(!err){
-					itickets.balanceOf.call(defaultAccount, function(err, result2){
-						
-						$("#tol_s8").html(web3.fromWei(result2.toFixed(), 'ether') + " " + result1);
+					itickets.methods.balanceOf(defaultAccount).call(function(err, result2){
+						//console.log(result2);
+						$("#tol_s8").html(web3.utils.fromWei(BN(result2).toFixed(), 'ether') + " " + result1);
 					});
 				}
 				
@@ -896,23 +901,23 @@ $(document).ready(function(){
 	var update1 = function(){
 		if(defaultAccount != "" && iconins){
     	  
-    	  iconins.getPlayerInfoByAddress.call(defaultAccount, call3);
-    	  iconins.getRecommander.call({from:defaultAccount}, callq1);
-    	  iconins.getRecomCount.call({from:defaultAccount}, callq2);
+    	  iconins.methods.getPlayerInfoByAddress(defaultAccount).call(call3);
+    	  iconins.methods.getRecommander().call({from:defaultAccount}, callq1);
+    	  iconins.methods.getRecomCount().call({from:defaultAccount}, callq2);
 		  
-		  iconins.getPlayerExtByAddress.call(defaultAccount, callExt);
+		  iconins.methods.getPlayerExtByAddress(defaultAccount).call(callExt);
 		  
 		  $(".wallet_address_input").val(defaultAccount);
     	  var balance = web3.eth.getBalance(defaultAccount, function(err, result){
 			  
     		  $(".wallet_address").html(defaultAccount.substr(0, 8) + "..." + defaultAccount.substr(-8));
-    		  $(".wallet_amt").html(BN(web3.fromWei(result.toFixed(), 'ether')).toFixed(8, 1));
+    		  $(".wallet_amt").html(BN(web3.utils.fromWei(BN(result).toFixed(), 'ether')).toFixed(8, 1));
 			  
-			  itickets.symbol.call(function(err, result1){
+			  itickets.methods.symbol.call(function(err, result1){
 				if(!err){
-					itickets.balanceOf.call(defaultAccount, function(err, result2){
+					itickets.methods.balanceOf(defaultAccount).call(function(err, result2){
 						
-						$("#tol_s8").html(web3.fromWei(result2.toFixed(), 'ether') + " " + result1);
+						$("#tol_s8").html(web3.utils.fromWei(BN(result2).toFixed(), 'ether') + " " + result1);
 					});
 				}
 				
@@ -925,8 +930,8 @@ $(document).ready(function(){
 	var update2 = function(){
 		if(iconins){
 			
-	 	  	iconins.getCurrentRoundInfo.call(call2);
-			iconins.getExtData.call(callExtData);
+	 	  	iconins.methods.getCurrentRoundInfo().call(call2);
+			iconins.methods.getExtData().call(callExtData);
 			
 		}
 		
@@ -935,7 +940,7 @@ $(document).ready(function(){
 	var update3 = function(){
 		if(iconins){
 			
-	 	  	iconins.getTimeLeft.call(callLeftTime);
+	 	  	iconins.methods.getTimeLeft().call(callLeftTime);
 	 	  	
 		}
 	}
@@ -973,11 +978,11 @@ $(document).ready(function(){
 	
 	var callq2 = function(err, result){
 		
-		$(".my-recomand-count").html(result.toFixed());
+		$(".my-recomand-count").html(BN(result).toFixed());
 	};
 	
 	var callLeftTime = function(err, result){
-		refreshBigTimer(result.toFixed());
+		refreshBigTimer(BN(result).toFixed());
 	};
 
 	var t1;
@@ -1007,13 +1012,13 @@ $(document).ready(function(){
   var callPreRoundInfo = function(err, result){
 	if(!err){
 		var a = [];
-		a.push(result[0].toFixed());
-		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
-		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		a.push(BN(result[0]).toFixed());
+		a.push(web3.utils.fromWei(BN(result[1]).toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[2]).toFixed(), 'ether'));
 		
-		a.push(web3.fromWei(result[3].toFixed(), 'ether'));
-		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
-		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[3]).toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[4]).toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[5]).toFixed(), 'ether'));
 		
 		a.push(result[6].length > 23 ? result[6].substring(0,18) + "..." + result[6].substr(-5) : result[6]);
 		a.push(result[7].length > 23 ? result[7].substring(0,18) + "..." + result[7].substr(-5) : result[7]);
@@ -1035,14 +1040,14 @@ $(document).ready(function(){
 	if(!err){
 	
 		var a = [];
-		a.push(web3.fromWei(result[0].toFixed(), 'ether'));
-		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
-		a.push(result[2].toFixed());
-		a.push(result[3].toFixed());
-		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[0]).toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[1]).toFixed(), 'ether'));
+		a.push(BN(result[2]).toFixed());
+		a.push(BN(result[3]).toFixed());
+		a.push(web3.utils.fromWei(BN(result[4]).toFixed(), 'ether'));
 		
 		
-		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[5]).toFixed(), 'ether'));
 		a.push(result[6].length > 23 ? result[6].substring(0,18) + "..." + result[6].substr(-5) : result[6]);
 		$("#person_node_4").html(a[6]);
 		$("#person_node_5").html(a[5] + " ETH");
@@ -1058,13 +1063,13 @@ $(document).ready(function(){
   }
 	var fillBgpool = function(result){
 		var a = [];
-		a.push(result[0].toFixed());
-		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
-		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		a.push(BN(result[0]).toFixed());
+		a.push(web3.utils.fromWei(BN(result[1]).toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[2]).toFixed(), 'ether'));
 		
-		a.push(web3.fromWei(result[3].toFixed(), 'ether'));
-		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
-		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[3]).toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[4]).toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[5]).toFixed(), 'ether'));
 		
 		a.push(result[6].length > 23 ? result[6].substring(0,18) + "..." + result[6].substr(-5) : result[6]);
 		a.push(result[7].length > 23 ? result[7].substring(0,18) + "..." + result[7].substr(-5) : result[7]);
@@ -1094,26 +1099,26 @@ $(document).ready(function(){
 		// 0
 		a.push(result[0]);
 		//gen 1
-		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[2]).toFixed(), 'ether'));
 		// 2
-		a.push(web3.fromWei(result[1].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[1]).toFixed(), 'ether'));
 		// 3
-		a.push(web3.fromWei(result[3].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[3]).toFixed(), 'ether'));
 		
 		// 4
-		a.push(web3.fromWei(result[5].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[5]).toFixed(), 'ether'));
 		
 		// 5
-		a.push(web3.fromWei(result[7].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[7]).toFixed(), 'ether'));
 		
 		// 6
-		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[4]).toFixed(), 'ether'));
 		
 		// 7
-		a.push(web3.fromWei(result[6].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[6]).toFixed(), 'ether'));
 		
 		// 8
-		a.push(web3.fromWei(result[8].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[8]).toFixed(), 'ether'));
 		
 		$(".cur_loop_join_amt").html(BN(a[3]).toFixed(8, 1) + " ETH");
 		$("#cur_loop_join_amt").html(BN(a[3]).toFixed(8, 1) + " ETH");
@@ -1140,15 +1145,15 @@ $(document).ready(function(){
 		
 		var a = [];
 		// 0
-		a.push(result[0].toFixed());
-		a.push(result[1].toFixed());
+		a.push(BN(result[0]).toFixed());
+		a.push(BN(result[1]).toFixed());
 		//gen 1
-		a.push(web3.fromWei(result[2].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[2]).toFixed(), 'ether'));
 		
 		a.push(result[3]);
-		a.push(web3.fromWei(result[4].toFixed(), 'ether'));
-		a.push(result[5].toFixed());
-		a.push(web3.fromWei(result[6].toFixed(), 'ether'));
+		a.push(web3.utils.fromWei(BN(result[4]).toFixed(), 'ether'));
+		a.push(BN(result[5]).toFixed());
+		a.push(web3.utils.fromWei(BN(result[6]).toFixed(), 'ether'));
 		
 		refreshIncomeTimer(a[0]);
 		//$("#tol_s1").html(a[0]);
@@ -1178,21 +1183,21 @@ $(document).ready(function(){
 	$(".quick-join").click(function(){
 		if(!checkAll()){return;}
 		
-		var etherValue = web3.toWei(1, 'ether');
+		var etherValue = web3.utils.toWei("1", 'ether');
 		if(recommander){
-			iconins.buy(recommander, {from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buy(recommander).send({from: defaultAccount, value: etherValue}, function(err, result){
 				if(err){
 					
-					alertify.error(err);
+					alertify.error(err.message);
 				}else{
 					update3();
 				}
 					
 			});
 		}else{
-			iconins.buyT({from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buyT().send({from: defaultAccount, value: etherValue}, function(err, result){
 				if(err){
-					alertify.error(err);
+					alertify.error(err.message);
 				}else{
 					update3();
 				}
@@ -1213,31 +1218,39 @@ $(document).ready(function(){
 			return;
 		}
 		
-		/*itickets.balanceOf.call(defaultAccount, function(err, result){
-			//symbol = result;
-			var rr = web3.fromWei(result.toFixed(), 'ether');
-			if(rr < $(".ethinput").val()*)
-		});*/
-		
-		var etherValue = web3.toWei($(".ethinput").val(), 'ether');
+		var etherValue = web3.utils.toWei($(".ethinput").val(), 'ether');
 		
 		if(recommander){
 			//console.log("recommander: " + recommander);
-			iconins.buy(recommander, {from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buy(recommander).send({from: defaultAccount, value: etherValue}, function(err, result){
+				if(err){
+					alertify.error(err.message);
+				}else{
+					update3();
+				}
+			});
+			/*iconins.methods.buy(recommander, {from: defaultAccount, value: etherValue}, function(err, result){
 				if(err){
 					alertify.error(err);
 				}else{
 					update3();
 				}
-			});
+			});*/
 		}else{
-			iconins.buyT({from: defaultAccount, value: etherValue}, function(err, result){
+			iconins.methods.buyT().send({from: defaultAccount, value: etherValue}, function(err, result){
+				if(err){
+					alertify.error(err.message);
+				}else{
+					update3();
+				}
+			});
+			/*iconins.buyT({from: defaultAccount, value: etherValue}, function(err, result){
 				if(err){
 					alertify.error(err);
 				}else{
 					update3();
 				}
-			});
+			});*/
 		}
 	});
 	
@@ -1260,7 +1273,7 @@ $(document).ready(function(){
 			return;
 		}
 		
-		var etherValue = web3.toWei(val, 'ether');
+		var etherValue = web3.utils.toWei(val+"", 'ether');
 		//console.log(etherValue + "=============================");
 		/*if(etherValue < 0.01){
 			alertify.error("your valut amt < 0.01！");
@@ -1270,9 +1283,9 @@ $(document).ready(function(){
 		var r = "0x0000000000000000000000000000000000000000";
 		r = recommander ? recommander : r;
 		//console.log("r: " + r);
-		iconins.reLoad(r, etherValue, function(err, result){
+		iconins.methods.reLoad(r, etherValue).send({from: defaultAccount}, function(err, result){
 			if(err){
-				alertify.error(err);
+				alertify.error(err.message);
 			}else{
 				update3();
 			}
@@ -1290,11 +1303,11 @@ $(document).ready(function(){
 		}
 		
 		if(iconins){
-			iconins.take(function(err, result){
+			iconins.methods.take().send({from: defaultAccount}, function(err, result){
 			
-			if(err){
-				alertify.error(err);
-			}
+				if(err){
+					alertify.error(err.message);
+				}
 			});
 		}
 		
@@ -1311,9 +1324,9 @@ $(document).ready(function(){
 		}
 		
 		if(iconins){
-			iconins.pubreg(recomander, function(err, result){
+			iconins.methods.pubreg(recomander).send({from:defaultAccount}, function(err, result){
 			if(err){
-				alertify.error(err);
+				alertify.error(err.message);
 			}
 			});
 		}
@@ -1382,7 +1395,7 @@ $(document).ready(function(){
     
 	
 	function checkAll(){
-		if(!cweb3){
+		if(typeof web3 === 'undefined'){
 			noWeb3();
 			return false;
 		}
@@ -1408,24 +1421,20 @@ $(document).ready(function(){
 	function updateExt001(){
 		if(iconins){
 		
-		itickets.symbol.call(function(err, result){
+		itickets.methods.symbol().call(function(err, result){
 			//itickets.blanceOf.call(defaultAccount, function(err, result1){
 			//	console.log("amt, "+result1);
 			//});
 			if(!err){
-				iconins.getCurrentRoundInfo.call(call2);
-				iconins.getTimeLeft.call(callLeftTime);
-				iconins.getHisRoundInfo.call(callPreRoundInfo);
-				iconins.getExtData.call(callExtData);
+				iconins.methods.getCurrentRoundInfo().call(call2);
+				iconins.methods.getTimeLeft().call(callLeftTime);
+				iconins.methods.getHisRoundInfo().call(callPreRoundInfo);
+				iconins.methods.getExtData().call(callExtData);
 				symbol = result;
-				itickets.totalSupply.call(function(err, result){
-					console.log(BN(web3.fromWei(result.toFixed(), 'ether')).toFixed(8, 1));
+				itickets.methods.totalSupply().call(function(err, result){
+					console.log(BN(web3.utils.fromWei(BN(result).toFixed(), 'ether')).toFixed(8, 1));
 				});
 			}
-			
-			
-			
-			//console.log("symbol:"+result);
 		});
 		
 		}
