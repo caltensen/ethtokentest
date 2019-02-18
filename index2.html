@@ -425,8 +425,8 @@ body {
 	background-color:#001F56;
 }
 body .bg {
-	background: url(static/bg290.jpg) repeat center -3rem,-webkit-linear-gradient(left, #22204d 0%,#222158 50%,#25216c 100%);
-	background: url(static/bg290.jpg) repeat center -3rem,linear-gradient(to right, #22204d 0%,#222158 50%,#25216c 100%);
+	background: url(static/wallhaven-740544.jpg) no-repeat center -3rem,-webkit-linear-gradient(left, #22204d 0%,#222158 50%,#25216c 100%);
+	background: url(static/wallhaven-740544.jpg) no-repeat center -3rem,linear-gradient(to right, #22204d 0%,#222158 50%,#25216c 100%);
 	
 	background-size: 100%;
 	position: fixed;
@@ -626,19 +626,23 @@ h2.ui.header {
 }
 @media only screen and (max-width: 320px) {
 	body .bg {
-		background-size: 300%;
-		background-position: center 3rem;
+		background-size:cover;
+		background-position: center 0rem;
+		
 	}
 }
 @media only screen and (min-width: 321px) and (max-width: 767px) {
 	body .bg {
-		background-size: 200%;
-		background-position: center 3rem;
+		background-size: 100%;
+		background-size:cover;
+		background-position: center 0rem;
+		
 	}
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	body .bg {
 		background-size: 150%;
+		
 		background-position: center 3rem;
 	}
 }
@@ -737,7 +741,38 @@ h2.ui.header {
 	
 }
 
+.ui.header.title{
+text-shadow: 0 0 5px black, 0 0 10px black, 0 0 20px red, 0 0 30px blue;
+                     
+					 }
+
 input,button,select,textarea,div{outline:none;}
+
+.text-shadow-blue {
+	text-shadow: 0 0 5px blue,0 0 10px blue,0 0 30px blue;
+}
+.text-shadow-zz {
+	text-shadow: 0 0 5px red,0 0 10px red,0 0 30px red;
+}
+
+/* 手机等小屏幕手持设备 */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+body {
+
+}
+}
+/* 平板之类的宽度 1024 以下设备 */
+@media only screen and (min-width: 321px) and (max-width: 1024px) {
+body {
+
+}
+}
+/* PC客户端或大屏幕设备: 1028px 至更大 */
+@media only screen and (min-width: 1029px) {
+body {
+
+}
+}
 </style>
 	
 	
@@ -783,7 +818,7 @@ input,button,select,textarea,div{outline:none;}
       <div class="ui grid top-panel" style="opacity: 1; transform: scale(1);"> 
        <div class="eight wide computer sixteen wide mobile column"> 
         <shikai>
-         <div class="ui segment" style="background:rgba(0,0,0,0.5);"> 
+         <div class="ui segment" style="background:rgba(0,0,0,0.8);"> 
           <i class="fa fa-hourglass fa-5x ui half massive backicon"></i> 
           <h4 class="ui header"><span data-translate="shikai">时间序列</span></h4> 
           <div class="bordergroup one"></div> 
@@ -857,7 +892,7 @@ input,button,select,textarea,div{outline:none;}
        <div class="eight wide computer sixteen wide mobile column liangkai_tab_c"> 
         <liangkai>
          
-          <div class="ui segment" style="background:rgba(0,0,0,0.5);"> 
+          <div class="ui segment" style="background:rgba(0,0,0,0.8);"> 
           <i class="fa fa-cubes fa-5x ui half massive backicon"></i> 
           <h4 class="ui header"><span data-translate="shikai">能量阶梯</span></h4> 
           <div class="bordergroup one"></div> 
@@ -970,7 +1005,7 @@ input,button,select,textarea,div{outline:none;}
          <a class="item" data-tab="invert" data-translate="invite_friends">邀请好友</a> 
         </div> 
         <div class="left-wrapper"> 
-         <div class="ui bottom attached tab segment active" style="background:rgba(0,0,0,0.5);" data-tab="purchase"> 
+         <div class="ui bottom attached tab segment active" style="background:rgba(0,0,0,0.8);" data-tab="purchase"> 
           <subpage-purchase>
            <h2 class="ui header">立即参与<i class="question circle outline icon"></i></h2> 
            <div class="bordergroup one"></div> 
@@ -1050,7 +1085,7 @@ input,button,select,textarea,div{outline:none;}
            </div>
           </subpage-purchase> 
          </div> 
-         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.5);" data-tab="fund">
+         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.8);" data-tab="fund">
           <fallback>
            <h2 class="ui header"><span data-translate="income">资产收益</span><i class="question circle outline icon"></i></h2> 
            <div class="bordergroup one"></div> 
@@ -1146,7 +1181,7 @@ input,button,select,textarea,div{outline:none;}
            </div>
           </fallback>
          </div> 
-         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.5);" data-tab="invert">
+         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.8);" data-tab="invert">
           <invite-friend>
            <div class="ui grid"> 
             <div class="row"> 
@@ -1203,7 +1238,7 @@ input,button,select,textarea,div{outline:none;}
          <a class="item" data-tab="reward" data-translate="reward">开奖</a> 
         </div> 
         <div class="right-wrapper"> 
-         <div class="ui bottom attached tab segment active" style="background:rgba(0,0,0,0.5);" data-tab="round">
+         <div class="ui bottom attached tab segment active" style="background:rgba(0,0,0,0.8);" data-tab="round">
           <round>
            <h2 class="ui header"><span>第1轮</span><i class="question circle outline icon"></i></h2> 
            <div class="bordergroup one"></div> 
@@ -1238,7 +1273,7 @@ input,button,select,textarea,div{outline:none;}
            </div>
           </round>
          </div> 
-         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.5);" data-tab="count">
+         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.8);" data-tab="count">
           <count>
            <div class="ui grid" style="background:rgba(0,0,0,0.2);"> 
             
@@ -1270,7 +1305,7 @@ input,button,select,textarea,div{outline:none;}
            </div>
           </count>
          </div> 
-         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.5);" data-tab="record">
+         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.8);" data-tab="record">
           <record>
            <h4 class="ui header" data-translate="purchas_record">购买记录</h4> 
            <div class="record-table"> 
@@ -1278,7 +1313,7 @@ input,button,select,textarea,div{outline:none;}
            </div>
           </record>
          </div> 
-         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.5);" data-tab="reward">
+         <div class="ui bottom attached tab segment" style="background:rgba(0,0,0,0.8);" data-tab="reward">
           <rewardlist>
            <div class="rewardList-container"> 
             <h4 class="ui header" data-translate="rewardHistory">开奖历史</h4> 
@@ -1347,8 +1382,8 @@ input,button,select,textarea,div{outline:none;}
          </div> 
          <div class="status-bar"> 
           
-          <span> 收益率：1%-2% </span> 
-		  <span> 最小投资额：0.1 ETH </span> 
+          <span class="text-shadow-blue"> 收益率：1%-2% </span> 
+		  <span class="text-shadow-zz"> 最小投资额：0.1 ETH </span> 
          </div> 
         </div> 
         <div class="two wide computer two wide tablet four wide mobile column right floated"> 
