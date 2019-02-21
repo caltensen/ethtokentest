@@ -1,4 +1,3 @@
-
 /*var intDiff = parseInt(60);//倒计时总秒数量
 function timer(intDiff, showDiv){
 	var intDiff = intDiff;
