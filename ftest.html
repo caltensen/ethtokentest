@@ -1004,6 +1004,7 @@ var handlerWeb3 = function(web3){
 	itickets = new web3.eth.Contract(abitoken, ticket);
 	web3.eth.net.getId(function(err, netId){
 		//console.log(netId);
+		alertify.error("当前使用的网络节点为：" + netId);
 		if(netId != gnetId){
 			if(gnetId == 3 || gnetId == 4)
 				alertify.error(tipl[0]);
